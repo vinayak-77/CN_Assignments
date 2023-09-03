@@ -8,12 +8,21 @@
 #include <deque>
 #include <iostream>
 #include <string>
+#include <unordered_map>
 
 //! \brief A class that assembles a series of excerpts from a byte stream (possibly out of order,
 //! possibly overlapping) into an in-order byte stream.
 class StreamReassembler {
   private:
     // Your code here -- add private members as necessary.
+    size_t capacity;
+    std:: string stream;
+    std:: unordered_map<uint64_t,std::string> buffer;
+    uint64_t nextInd;
+    size_t bufferSize;
+    std:: string discarded;
+
+
 
     ByteStream _output;  //!< The reassembled in-order byte stream
 
