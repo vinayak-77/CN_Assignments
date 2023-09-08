@@ -1,6 +1,7 @@
 #ifndef SPONGE_LIBSPONGE_STREAM_REASSEMBLER_HH
 #define SPONGE_LIBSPONGE_STREAM_REASSEMBLER_HH
 
+
 #include "byte_stream.hh"
 
 #include <algorithm>
@@ -16,11 +17,11 @@ class StreamReassembler {
   private:
     // Your code here -- add private members as necessary.
     size_t capacity;
-    std:: string stream;
-    std:: unordered_map<uint64_t,std::string> buffer;
-    uint64_t nextInd;
+    std::string stream;
+    std::unordered_map<uint64_t,std::string> buffer;
+    size_t nextInd;
     size_t bufferSize;
-    std:: string discarded;
+    std::string discarded;
 
 
 
@@ -60,6 +61,8 @@ class StreamReassembler {
 
     //! The acknowledge index of the stream, i.e., the index of the next interested substring
     size_t ack_index() const;
+
+    std::string getStream();
 };
 
 #endif  // SPONGE_LIBSPONGE_STREAM_REASSEMBLER_HH

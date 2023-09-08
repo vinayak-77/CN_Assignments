@@ -1,16 +1,16 @@
-wrapping_integers_cmp 1 0.00958468
+wrapping_integers_cmp 2 0.00725276
 wrapping_integers_unwrap 0 0
-wrapping_integers_wrap 1 0.0062343
+wrapping_integers_wrap 2 0.0170834
 wrapping_integers_roundtrip 0 0
-byte_stream_construction 5 0.000911707
-byte_stream_one_write 1 0.0093245
-byte_stream_two_writes 1 0.00502001
-byte_stream_capacity 5 0.279872
-byte_stream_many_writes 14 0.000271997
+byte_stream_construction 8 0.00339084
+byte_stream_one_write 4 0.00703796
+byte_stream_two_writes 4 0.00475336
+byte_stream_capacity 8 0.240169
+byte_stream_many_writes 17 0.000356992
 recv_connect 0 0
 recv_transmit 0 0
 recv_window 0 0
 recv_reorder 0 0
 recv_close 0 0
-recv_special 1 0.00768143
+recv_special 2 0.00713634
 ---
