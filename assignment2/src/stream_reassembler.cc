@@ -21,7 +21,8 @@ StreamReassembler::StreamReassembler(const size_t capacity)
     this->buffer = buffer;
     this->nextInd = 0;
     this->bufferSize = 0;
-    this->discarded = "";
+    this->dataToAdd = "";
+    
     // this->_output = _output;
 }
 
@@ -38,24 +39,34 @@ void StreamReassembler::push_substring(const string &data, const size_t index, c
 
     if(index==nextInd){
         stream+=data;
+        dataToAdd = data;
         nextInd = nextInd+data.length();
-        while(buffer.find(nextInd)!=buffer.end()){
+        if(nextInd>capacity){
+            size_t remainingSize = capacity-nextInd;
+            dataToAdd = data.substr(0,remainingSize);
+        }
+        while(nextInd<capacity && buffer.find(nextInd)!=buffer.end()){
             
             string newData = buffer[nextInd];
             buffer.erase(nextInd);
-            if(nextInd+newData.length()>capacity){
+            if(nextInd>capacity){
                 int remainingSize = capacity-nextInd;
                 newData = newData.substr(0,remainingSize);
                 stream+=newData;
+                dataToAdd+=newData;
                 nextInd+=newData.size();
                 bufferSize-=newData.length();
+                
             }
             else{
                 stream+=newData;
+                dataToAdd+=newData;
                 nextInd+=newData.size();
                 bufferSize-=newData.length();
+                
             }
         }
+        _output.write(dataToAdd);
         return;
     }
     else{
@@ -73,19 +84,22 @@ size_t StreamReassembler::ack_index() const { return nextInd; }
 
 string StreamReassembler::getStream() {return this->stream; }
 
+string StreamReassembler :: getOutput() {return _output.read(nextInd); }
+
 
 int main(){
-    StreamReassembler obj(100);
+    StreamReassembler obj(10);
     string s;
     int ind;
-    for(int i = 0;i<3;i++){
+    for(int i = 0;i<1;i++){
         cin>>s>>ind;
         obj.push_substring(s,ind,false);
         cout<<obj.ack_index()<<endl;
     }
     cin>>s>>ind;
     obj.push_substring(s,ind,true);
-    cout<<obj.getStream()<<endl;
+    string final = obj.getOutput();
+    cout<<final<<endl;
     // string a = obj.getStream();
     return 0;
 }

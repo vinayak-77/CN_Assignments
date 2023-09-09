@@ -21,9 +21,7 @@ class StreamReassembler {
     std::unordered_map<uint64_t,std::string> buffer;
     size_t nextInd;
     size_t bufferSize;
-    std::string discarded;
-
-
+    std::string dataToAdd;
 
     ByteStream _output;  //!< The reassembled in-order byte stream
 
@@ -63,6 +61,7 @@ class StreamReassembler {
     size_t ack_index() const;
 
     std::string getStream();
+    std::string getOutput();
 };
 
 #endif  // SPONGE_LIBSPONGE_STREAM_REASSEMBLER_HH
