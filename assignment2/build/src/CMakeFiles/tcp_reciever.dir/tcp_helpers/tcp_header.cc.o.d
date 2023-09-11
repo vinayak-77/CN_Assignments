@@ -1,9 +1,9 @@
 src/CMakeFiles/tcp_reciever.dir/tcp_helpers/tcp_header.cc.o: \
- /home/vboxuser/Downloads/assignment2/src/tcp_helpers/tcp_header.cc \
+ /home/vboxuser/Downloads/CN_Assignments/assignment2/src/tcp_helpers/tcp_header.cc \
  /usr/include/stdc-predef.h \
- /home/vboxuser/Downloads/assignment2/src/tcp_helpers/tcp_header.hh \
- /home/vboxuser/Downloads/assignment2/src/util/parser.hh \
- /home/vboxuser/Downloads/assignment2/src/util/buffer.hh \
+ /home/vboxuser/Downloads/CN_Assignments/assignment2/src/tcp_helpers/tcp_header.hh \
+ /home/vboxuser/Downloads/CN_Assignments/assignment2/src/util/parser.hh \
+ /home/vboxuser/Downloads/CN_Assignments/assignment2/src/util/buffer.hh \
  /usr/include/c++/11/algorithm /usr/include/c++/11/utility \
  /usr/include/x86_64-linux-gnu/c++/11/bits/c++config.h \
  /usr/include/x86_64-linux-gnu/c++/11/bits/os_defines.h \
@@ -174,7 +174,7 @@ src/CMakeFiles/tcp_reciever.dir/tcp_helpers/tcp_header.cc.o: \
  /usr/include/x86_64-linux-gnu/bits/types/struct_iovec.h \
  /usr/include/x86_64-linux-gnu/bits/uio_lim.h \
  /usr/include/x86_64-linux-gnu/bits/uio-ext.h \
- /home/vboxuser/Downloads/assignment2/src/wrapping_integers.hh \
+ /home/vboxuser/Downloads/CN_Assignments/assignment2/src/wrapping_integers.hh \
  /usr/include/c++/11/ostream /usr/include/c++/11/ios \
  /usr/include/c++/11/bits/ios_base.h \
  /usr/include/c++/11/bits/locale_classes.h \

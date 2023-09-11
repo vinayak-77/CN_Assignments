@@ -37,15 +37,21 @@ void StreamReassembler::push_substring(const string &data, const size_t index, c
     //     return;
     // }
 
+    if(index>stream_out().remaining_capacity()){
+        return;
+    }
+
     if(index==nextInd){
+        size_t capacityRem = _output.remaining_capacity()+nextInd;
         stream+=data;
         dataToAdd = data;
         nextInd = nextInd+data.length();
-        if(nextInd>capacity){
-            size_t remainingSize = capacity-nextInd;
-            dataToAdd = data.substr(0,remainingSize);
+        if(nextInd>capacityRem){
+            size_t remainingSize = nextInd-capacityRem;
+            dataToAdd = data.substr(0,data.length()-remainingSize);
         }
-        while(nextInd<capacity && buffer.find(nextInd)!=buffer.end()){
+        
+        while(nextInd<capacityRem && buffer.find(nextInd)!=buffer.end()){
             
             string newData = buffer[nextInd];
             buffer.erase(nextInd);
@@ -66,7 +72,7 @@ void StreamReassembler::push_substring(const string &data, const size_t index, c
                 
             }
         }
-        _output.write(dataToAdd);
+        stream_out().write(dataToAdd);
         return;
     }
     else{
@@ -87,19 +93,19 @@ string StreamReassembler::getStream() {return this->stream; }
 string StreamReassembler :: getOutput() {return _output.read(nextInd); }
 
 
-int main(){
-    StreamReassembler obj(10);
-    string s;
-    int ind;
-    for(int i = 0;i<1;i++){
-        cin>>s>>ind;
-        obj.push_substring(s,ind,false);
-        cout<<obj.ack_index()<<endl;
-    }
-    cin>>s>>ind;
-    obj.push_substring(s,ind,true);
-    string final = obj.getOutput();
-    cout<<final<<endl;
-    // string a = obj.getStream();
-    return 0;
-}
+// int main(){
+//     StreamReassembler obj(10);
+//     string s;
+//     int ind;
+//     for(int i = 0;i<1;i++){
+//         cin>>s>>ind;
+//         obj.push_substring(s,ind,false);
+//         cout<<obj.ack_index()<<endl;
+//     }
+//     cin>>s>>ind;
+//     obj.push_substring(s,ind,true);
+//     string final = obj.getOutput();
+//     cout<<final<<endl;
+//     // string a = obj.getStream();
+//     return 0;
+// }

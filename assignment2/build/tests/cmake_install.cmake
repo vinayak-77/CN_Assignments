@@ -1,4 +1,4 @@
-# Install script for directory: /home/vboxuser/Downloads/assignment2/tests
+# Install script for directory: /home/vboxuser/Downloads/CN_Assignments/assignment2/tests
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)

@@ -8,7 +8,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
-  "/home/vboxuser/Downloads/assignment2/tests/recv_reorder.cc" "tests/CMakeFiles/recv_reorder.dir/recv_reorder.cc.o" "gcc" "tests/CMakeFiles/recv_reorder.dir/recv_reorder.cc.o.d"
+  "/home/vboxuser/Downloads/CN_Assignments/assignment2/tests/recv_reorder.cc" "tests/CMakeFiles/recv_reorder.dir/recv_reorder.cc.o" "gcc" "tests/CMakeFiles/recv_reorder.dir/recv_reorder.cc.o.d"
   )
 
 # Targets to which this target links which contain Fortran sources.

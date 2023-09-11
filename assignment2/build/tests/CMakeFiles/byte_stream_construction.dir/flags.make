@@ -4,7 +4,7 @@
 # compile CXX with /usr/bin/c++
 CXX_DEFINES = 
 
-CXX_INCLUDES = -I/home/vboxuser/Downloads/assignment2/src/util -I/home/vboxuser/Downloads/assignment2/src -I/home/vboxuser/Downloads/assignment2/src/tcp_helpers
+CXX_INCLUDES = -I/home/vboxuser/Downloads/CN_Assignments/assignment2/src/util -I/home/vboxuser/Downloads/CN_Assignments/assignment2/src -I/home/vboxuser/Downloads/CN_Assignments/assignment2/src/tcp_helpers
 
 CXX_FLAGS = 
 

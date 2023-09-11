@@ -1,78 +1,214 @@
-Start testing: Sep 08 17:13 IST
+Start testing: Sep 10 23:35 IST
 ----------------------------------------------------------
-5/15 Testing: byte_stream_construction
-5/15 Test: byte_stream_construction
-Command: "/home/vboxuser/Downloads/assignment2/build/tests/byte_stream_construction"
+16/23 Testing: fsm_stream_reassembler_cap
+16/23 Test: fsm_stream_reassembler_cap
+Command: "/home/vboxuser/Downloads/CN_Assignments/assignment2/build/tests/fsm_stream_reassembler_cap"
 Directory: /home/vboxuser/Downloads/CN_Assignments/assignment2/build/tests
-"byte_stream_construction" start time: Sep 08 17:13 IST
+"fsm_stream_reassembler_cap" start time: Sep 10 23:35 IST
 Output:
 ----------------------------------------------------------
-<end of output>
-Test time =   0.03 sec
-----------------------------------------------------------
-Test Passed.
-"byte_stream_construction" end time: Sep 08 17:13 IST
-"byte_stream_construction" time elapsed: 00:00:00
-----------------------------------------------------------
+Test Failure on expectation:
+	Expectation: stream_out().buffer_size() returned 2, and stream_out().read(2) returned the string "cd"
 
-6/15 Testing: byte_stream_one_write
-6/15 Test: byte_stream_one_write
-Command: "/home/vboxuser/Downloads/assignment2/build/tests/byte_stream_one_write"
-Directory: /home/vboxuser/Downloads/CN_Assignments/assignment2/build/tests
-"byte_stream_one_write" start time: Sep 08 17:13 IST
-Output:
-----------------------------------------------------------
-<end of output>
-Test time =   0.03 sec
-----------------------------------------------------------
-Test Passed.
-"byte_stream_one_write" end time: Sep 08 17:13 IST
-"byte_stream_one_write" time elapsed: 00:00:00
-----------------------------------------------------------
+Failure message:
+	The reassembler was expected to have `2` bytes available, but there were `4`
 
-7/15 Testing: byte_stream_two_writes
-7/15 Test: byte_stream_two_writes
-Command: "/home/vboxuser/Downloads/assignment2/build/tests/byte_stream_two_writes"
-Directory: /home/vboxuser/Downloads/CN_Assignments/assignment2/build/tests
-"byte_stream_two_writes" start time: Sep 08 17:13 IST
-Output:
-----------------------------------------------------------
+List of steps that executed successfully:
+	Initialized (capacity = 2)
+	Action:      substring submitted with data "ab", index `0`, eof `0`
+	Expectation: net bytes assembled = 2
+	Expectation: stream_out().buffer_size() returned 2, and stream_out().read(2) returned the string "ab"
+	Action:      substring submitted with data "cd", index `2`, eof `0`
+	Expectation: net bytes assembled = 4
+
+Exception: The reassembler was expected to have `2` bytes available, but there were `4`
 <end of output>
 Test time =   0.02 sec
 ----------------------------------------------------------
-Test Passed.
-"byte_stream_two_writes" end time: Sep 08 17:13 IST
-"byte_stream_two_writes" time elapsed: 00:00:00
+Test Failed.
+"fsm_stream_reassembler_cap" end time: Sep 10 23:35 IST
+"fsm_stream_reassembler_cap" time elapsed: 00:00:00
 ----------------------------------------------------------
 
-8/15 Testing: byte_stream_capacity
-8/15 Test: byte_stream_capacity
-Command: "/home/vboxuser/Downloads/assignment2/build/tests/byte_stream_capacity"
+17/23 Testing: fsm_stream_reassembler_single
+17/23 Test: fsm_stream_reassembler_single
+Command: "/home/vboxuser/Downloads/CN_Assignments/assignment2/build/tests/fsm_stream_reassembler_single"
 Directory: /home/vboxuser/Downloads/CN_Assignments/assignment2/build/tests
-"byte_stream_capacity" start time: Sep 08 17:13 IST
+"fsm_stream_reassembler_single" start time: Sep 10 23:35 IST
 Output:
 ----------------------------------------------------------
-<end of output>
-Test time =   1.92 sec
-----------------------------------------------------------
-Test Passed.
-"byte_stream_capacity" end time: Sep 08 17:13 IST
-"byte_stream_capacity" time elapsed: 00:00:01
-----------------------------------------------------------
+Test Failure on expectation:
+	Expectation: at EOF
 
-9/15 Testing: byte_stream_many_writes
-9/15 Test: byte_stream_many_writes
-Command: "/home/vboxuser/Downloads/assignment2/build/tests/byte_stream_many_writes"
-Directory: /home/vboxuser/Downloads/CN_Assignments/assignment2/build/tests
-"byte_stream_many_writes" start time: Sep 08 17:13 IST
-Output:
-----------------------------------------------------------
+Failure message:
+	The reassembler was expected to be at EOF, but was not
+
+List of steps that executed successfully:
+	Initialized (capacity = 65000)
+	Action:      substring submitted with data "a", index `0`, eof `1`
+	Expectation: net bytes assembled = 1
+	Expectation: stream_out().buffer_size() returned 1, and stream_out().read(1) returned the string "a"
+
+Exception: The reassembler was expected to be at EOF, but was not
 <end of output>
 Test time =   0.01 sec
 ----------------------------------------------------------
-Test Passed.
-"byte_stream_many_writes" end time: Sep 08 17:13 IST
-"byte_stream_many_writes" time elapsed: 00:00:00
+Test Failed.
+"fsm_stream_reassembler_single" end time: Sep 10 23:35 IST
+"fsm_stream_reassembler_single" time elapsed: 00:00:00
 ----------------------------------------------------------
 
-End testing: Sep 08 17:13 IST
+18/23 Testing: fsm_stream_reassembler_seq
+18/23 Test: fsm_stream_reassembler_seq
+Command: "/home/vboxuser/Downloads/CN_Assignments/assignment2/build/tests/fsm_stream_reassembler_seq"
+Directory: /home/vboxuser/Downloads/CN_Assignments/assignment2/build/tests
+"fsm_stream_reassembler_seq" start time: Sep 10 23:35 IST
+Output:
+----------------------------------------------------------
+Test Failure on expectation:
+	Expectation: stream_out().buffer_size() returned 4, and stream_out().read(4) returned the string "efgh"
+
+Failure message:
+	The reassembler was expected to have `4` bytes available, but there were `8`
+
+List of steps that executed successfully:
+	Initialized (capacity = 65000)
+	Action:      substring submitted with data "abcd", index `0`, eof `0`
+	Expectation: net bytes assembled = 4
+	Expectation: stream_out().buffer_size() returned 4, and stream_out().read(4) returned the string "abcd"
+	Expectation: not at EOF
+	Action:      substring submitted with data "efgh", index `4`, eof `0`
+	Expectation: net bytes assembled = 8
+
+Exception: The reassembler was expected to have `4` bytes available, but there were `8`
+<end of output>
+Test time =   0.02 sec
+----------------------------------------------------------
+Test Failed.
+"fsm_stream_reassembler_seq" end time: Sep 10 23:35 IST
+"fsm_stream_reassembler_seq" time elapsed: 00:00:00
+----------------------------------------------------------
+
+19/23 Testing: fsm_stream_reassembler_dup
+19/23 Test: fsm_stream_reassembler_dup
+Command: "/home/vboxuser/Downloads/CN_Assignments/assignment2/build/tests/fsm_stream_reassembler_dup"
+Directory: /home/vboxuser/Downloads/CN_Assignments/assignment2/build/tests
+"fsm_stream_reassembler_dup" start time: Sep 10 23:35 IST
+Output:
+----------------------------------------------------------
+Test Failure on expectation:
+	Expectation: stream_out().buffer_size() returned 0, and stream_out().read(0) returned the string ""
+
+Failure message:
+	The reassembler was expected to have `0` bytes available, but there were `4`
+
+List of steps that executed successfully:
+	Initialized (capacity = 65000)
+	Action:      substring submitted with data "abcd", index `0`, eof `0`
+	Expectation: net bytes assembled = 4
+	Expectation: stream_out().buffer_size() returned 4, and stream_out().read(4) returned the string "abcd"
+	Expectation: not at EOF
+	Action:      substring submitted with data "abcd", index `0`, eof `0`
+	Expectation: net bytes assembled = 4
+
+Exception: The reassembler was expected to have `0` bytes available, but there were `4`
+<end of output>
+Test time =   0.01 sec
+----------------------------------------------------------
+Test Failed.
+"fsm_stream_reassembler_dup" end time: Sep 10 23:35 IST
+"fsm_stream_reassembler_dup" time elapsed: 00:00:00
+----------------------------------------------------------
+
+20/23 Testing: fsm_stream_reassembler_holes
+20/23 Test: fsm_stream_reassembler_holes
+Command: "/home/vboxuser/Downloads/CN_Assignments/assignment2/build/tests/fsm_stream_reassembler_holes"
+Directory: /home/vboxuser/Downloads/CN_Assignments/assignment2/build/tests
+"fsm_stream_reassembler_holes" start time: Sep 10 23:35 IST
+Output:
+----------------------------------------------------------
+Test Failure on expectation:
+	Expectation: at EOF
+
+Failure message:
+	The reassembler was expected to be at EOF, but was not
+
+List of steps that executed successfully:
+	Initialized (capacity = 65000)
+	Action:      substring submitted with data "b", index `1`, eof `1`
+	Expectation: net bytes assembled = 0
+	Expectation: stream_out().buffer_size() returned 0, and stream_out().read(0) returned the string ""
+	Expectation: not at EOF
+	Action:      substring submitted with data "a", index `0`, eof `0`
+	Expectation: net bytes assembled = 2
+	Expectation: stream_out().buffer_size() returned 2, and stream_out().read(2) returned the string "ab"
+
+Exception: The reassembler was expected to be at EOF, but was not
+<end of output>
+Test time =   0.01 sec
+----------------------------------------------------------
+Test Failed.
+"fsm_stream_reassembler_holes" end time: Sep 10 23:35 IST
+"fsm_stream_reassembler_holes" time elapsed: 00:00:00
+----------------------------------------------------------
+
+21/23 Testing: fsm_stream_reassembler_many
+21/23 Test: fsm_stream_reassembler_many
+Command: "/home/vboxuser/Downloads/CN_Assignments/assignment2/build/tests/fsm_stream_reassembler_many"
+Directory: /home/vboxuser/Downloads/CN_Assignments/assignment2/build/tests
+"fsm_stream_reassembler_many" start time: Sep 10 23:35 IST
+Output:
+----------------------------------------------------------
+Exception: test 1 - number of bytes RX is incorrect
+<end of output>
+Test time =   0.14 sec
+----------------------------------------------------------
+Test Failed.
+"fsm_stream_reassembler_many" end time: Sep 10 23:35 IST
+"fsm_stream_reassembler_many" time elapsed: 00:00:00
+----------------------------------------------------------
+
+22/23 Testing: fsm_stream_reassembler_overlapping
+22/23 Test: fsm_stream_reassembler_overlapping
+Command: "/home/vboxuser/Downloads/CN_Assignments/assignment2/build/tests/fsm_stream_reassembler_overlapping"
+Directory: /home/vboxuser/Downloads/CN_Assignments/assignment2/build/tests
+"fsm_stream_reassembler_overlapping" start time: Sep 10 23:35 IST
+Output:
+----------------------------------------------------------
+Test Failure on expectation:
+	Expectation: net bytes assembled = 2
+
+Failure message:
+	The reassembler was expected to have `2` total bytes assembled, but there were `1`
+
+List of steps that executed successfully:
+	Initialized (capacity = 1000)
+	Action:      substring submitted with data "a", index `0`, eof `0`
+	Action:      substring submitted with data "ab", index `0`, eof `0`
+
+Exception: The reassembler was expected to have `2` total bytes assembled, but there were `1`
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Failed.
+"fsm_stream_reassembler_overlapping" end time: Sep 10 23:35 IST
+"fsm_stream_reassembler_overlapping" time elapsed: 00:00:00
+----------------------------------------------------------
+
+23/23 Testing: fsm_stream_reassembler_win
+23/23 Test: fsm_stream_reassembler_win
+Command: "/home/vboxuser/Downloads/CN_Assignments/assignment2/build/tests/fsm_stream_reassembler_win"
+Directory: /home/vboxuser/Downloads/CN_Assignments/assignment2/build/tests
+"fsm_stream_reassembler_win" start time: Sep 10 23:35 IST
+Output:
+----------------------------------------------------------
+Exception: test 2 - number of RX bytes is incorrect
+<end of output>
+Test time =   0.01 sec
+----------------------------------------------------------
+Test Failed.
+"fsm_stream_reassembler_win" end time: Sep 10 23:35 IST
+"fsm_stream_reassembler_win" time elapsed: 00:00:00
+----------------------------------------------------------
+
+End testing: Sep 10 23:35 IST

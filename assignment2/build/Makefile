@@ -48,19 +48,19 @@ cmake_force:
 SHELL = /bin/sh
 
 # The CMake executable.
-CMAKE_COMMAND = /snap/cmake/1329/bin/cmake
+CMAKE_COMMAND = /home/vboxuser/.local/lib/python3.10/site-packages/cmake/data/bin/cmake
 
 # The command to remove a file.
-RM = /snap/cmake/1329/bin/cmake -E rm -f
+RM = /home/vboxuser/.local/lib/python3.10/site-packages/cmake/data/bin/cmake -E rm -f
 
 # Escaping for special characters.
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/vboxuser/Downloads/assignment2
+CMAKE_SOURCE_DIR = /home/vboxuser/Downloads/CN_Assignments/assignment2
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/vboxuser/Downloads/assignment2/build
+CMAKE_BINARY_DIR = /home/vboxuser/Downloads/CN_Assignments/assignment2/build
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -68,7 +68,7 @@ CMAKE_BINARY_DIR = /home/vboxuser/Downloads/assignment2/build
 # Special rule for the target test
 test:
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --cyan "Running tests..."
-	/snap/cmake/1329/bin/ctest --force-new-ctest-process $(ARGS)
+	/home/vboxuser/.local/lib/python3.10/site-packages/cmake/data/bin/ctest --force-new-ctest-process $(ARGS)
 .PHONY : test
 
 # Special rule for the target test
@@ -77,8 +77,8 @@ test/fast: test
 
 # Special rule for the target edit_cache
 edit_cache:
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --cyan "Running CMake cache editor..."
-	/snap/cmake/1329/bin/ccmake -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --cyan "No interactive CMake dialog available..."
+	/home/vboxuser/.local/lib/python3.10/site-packages/cmake/data/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
 .PHONY : edit_cache
 
 # Special rule for the target edit_cache
@@ -88,7 +88,7 @@ edit_cache/fast: edit_cache
 # Special rule for the target rebuild_cache
 rebuild_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --cyan "Running CMake to regenerate build system..."
-	/snap/cmake/1329/bin/cmake --regenerate-during-build -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
+	/home/vboxuser/.local/lib/python3.10/site-packages/cmake/data/bin/cmake --regenerate-during-build -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
 .PHONY : rebuild_cache
 
 # Special rule for the target rebuild_cache
@@ -97,9 +97,9 @@ rebuild_cache/fast: rebuild_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/vboxuser/Downloads/assignment2/build/CMakeFiles /home/vboxuser/Downloads/assignment2/build//CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/vboxuser/Downloads/CN_Assignments/assignment2/build/CMakeFiles /home/vboxuser/Downloads/CN_Assignments/assignment2/build//CMakeFiles/progress.marks
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/vboxuser/Downloads/assignment2/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/vboxuser/Downloads/CN_Assignments/assignment2/build/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -347,6 +347,110 @@ recv_special/fast:
 	$(MAKE) $(MAKESILENT) -f tests/CMakeFiles/recv_special.dir/build.make tests/CMakeFiles/recv_special.dir/build
 .PHONY : recv_special/fast
 
+#=============================================================================
+# Target rules for targets named fsm_stream_reassembler_cap
+
+# Build rule for target.
+fsm_stream_reassembler_cap: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 fsm_stream_reassembler_cap
+.PHONY : fsm_stream_reassembler_cap
+
+# fast build rule for target.
+fsm_stream_reassembler_cap/fast:
+	$(MAKE) $(MAKESILENT) -f tests/CMakeFiles/fsm_stream_reassembler_cap.dir/build.make tests/CMakeFiles/fsm_stream_reassembler_cap.dir/build
+.PHONY : fsm_stream_reassembler_cap/fast
+
+#=============================================================================
+# Target rules for targets named fsm_stream_reassembler_single
+
+# Build rule for target.
+fsm_stream_reassembler_single: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 fsm_stream_reassembler_single
+.PHONY : fsm_stream_reassembler_single
+
+# fast build rule for target.
+fsm_stream_reassembler_single/fast:
+	$(MAKE) $(MAKESILENT) -f tests/CMakeFiles/fsm_stream_reassembler_single.dir/build.make tests/CMakeFiles/fsm_stream_reassembler_single.dir/build
+.PHONY : fsm_stream_reassembler_single/fast
+
+#=============================================================================
+# Target rules for targets named fsm_stream_reassembler_seq
+
+# Build rule for target.
+fsm_stream_reassembler_seq: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 fsm_stream_reassembler_seq
+.PHONY : fsm_stream_reassembler_seq
+
+# fast build rule for target.
+fsm_stream_reassembler_seq/fast:
+	$(MAKE) $(MAKESILENT) -f tests/CMakeFiles/fsm_stream_reassembler_seq.dir/build.make tests/CMakeFiles/fsm_stream_reassembler_seq.dir/build
+.PHONY : fsm_stream_reassembler_seq/fast
+
+#=============================================================================
+# Target rules for targets named fsm_stream_reassembler_dup
+
+# Build rule for target.
+fsm_stream_reassembler_dup: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 fsm_stream_reassembler_dup
+.PHONY : fsm_stream_reassembler_dup
+
+# fast build rule for target.
+fsm_stream_reassembler_dup/fast:
+	$(MAKE) $(MAKESILENT) -f tests/CMakeFiles/fsm_stream_reassembler_dup.dir/build.make tests/CMakeFiles/fsm_stream_reassembler_dup.dir/build
+.PHONY : fsm_stream_reassembler_dup/fast
+
+#=============================================================================
+# Target rules for targets named fsm_stream_reassembler_holes
+
+# Build rule for target.
+fsm_stream_reassembler_holes: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 fsm_stream_reassembler_holes
+.PHONY : fsm_stream_reassembler_holes
+
+# fast build rule for target.
+fsm_stream_reassembler_holes/fast:
+	$(MAKE) $(MAKESILENT) -f tests/CMakeFiles/fsm_stream_reassembler_holes.dir/build.make tests/CMakeFiles/fsm_stream_reassembler_holes.dir/build
+.PHONY : fsm_stream_reassembler_holes/fast
+
+#=============================================================================
+# Target rules for targets named fsm_stream_reassembler_many
+
+# Build rule for target.
+fsm_stream_reassembler_many: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 fsm_stream_reassembler_many
+.PHONY : fsm_stream_reassembler_many
+
+# fast build rule for target.
+fsm_stream_reassembler_many/fast:
+	$(MAKE) $(MAKESILENT) -f tests/CMakeFiles/fsm_stream_reassembler_many.dir/build.make tests/CMakeFiles/fsm_stream_reassembler_many.dir/build
+.PHONY : fsm_stream_reassembler_many/fast
+
+#=============================================================================
+# Target rules for targets named fsm_stream_reassembler_overlapping
+
+# Build rule for target.
+fsm_stream_reassembler_overlapping: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 fsm_stream_reassembler_overlapping
+.PHONY : fsm_stream_reassembler_overlapping
+
+# fast build rule for target.
+fsm_stream_reassembler_overlapping/fast:
+	$(MAKE) $(MAKESILENT) -f tests/CMakeFiles/fsm_stream_reassembler_overlapping.dir/build.make tests/CMakeFiles/fsm_stream_reassembler_overlapping.dir/build
+.PHONY : fsm_stream_reassembler_overlapping/fast
+
+#=============================================================================
+# Target rules for targets named fsm_stream_reassembler_win
+
+# Build rule for target.
+fsm_stream_reassembler_win: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 fsm_stream_reassembler_win
+.PHONY : fsm_stream_reassembler_win
+
+# fast build rule for target.
+fsm_stream_reassembler_win/fast:
+	$(MAKE) $(MAKESILENT) -f tests/CMakeFiles/fsm_stream_reassembler_win.dir/build.make tests/CMakeFiles/fsm_stream_reassembler_win.dir/build
+.PHONY : fsm_stream_reassembler_win/fast
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -361,6 +465,14 @@ help:
 	@echo "... byte_stream_many_writes"
 	@echo "... byte_stream_one_write"
 	@echo "... byte_stream_two_writes"
+	@echo "... fsm_stream_reassembler_cap"
+	@echo "... fsm_stream_reassembler_dup"
+	@echo "... fsm_stream_reassembler_holes"
+	@echo "... fsm_stream_reassembler_many"
+	@echo "... fsm_stream_reassembler_overlapping"
+	@echo "... fsm_stream_reassembler_seq"
+	@echo "... fsm_stream_reassembler_single"
+	@echo "... fsm_stream_reassembler_win"
 	@echo "... recv_close"
 	@echo "... recv_connect"
 	@echo "... recv_reorder"

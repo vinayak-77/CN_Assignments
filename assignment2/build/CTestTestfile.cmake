@@ -1,6 +1,6 @@
 # CMake generated Testfile for 
-# Source directory: /home/vboxuser/Downloads/assignment2
-# Build directory: /home/vboxuser/Downloads/assignment2/build
+# Source directory: /home/vboxuser/Downloads/CN_Assignments/assignment2
+# Build directory: /home/vboxuser/Downloads/CN_Assignments/assignment2/build
 # 
 # This file includes the relevant testing commands required for 
 # testing this directory and lists subdirectories to be tested as well.

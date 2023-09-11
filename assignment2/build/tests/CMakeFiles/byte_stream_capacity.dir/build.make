@@ -44,19 +44,19 @@ cmake_force:
 SHELL = /bin/sh
 
 # The CMake executable.
-CMAKE_COMMAND = /snap/cmake/1329/bin/cmake
+CMAKE_COMMAND = /home/vboxuser/.local/lib/python3.10/site-packages/cmake/data/bin/cmake
 
 # The command to remove a file.
-RM = /snap/cmake/1329/bin/cmake -E rm -f
+RM = /home/vboxuser/.local/lib/python3.10/site-packages/cmake/data/bin/cmake -E rm -f
 
 # Escaping for special characters.
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/vboxuser/Downloads/assignment2
+CMAKE_SOURCE_DIR = /home/vboxuser/Downloads/CN_Assignments/assignment2
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/vboxuser/Downloads/assignment2/build
+CMAKE_BINARY_DIR = /home/vboxuser/Downloads/CN_Assignments/assignment2/build
 
 # Include any dependencies generated for this target.
 include tests/CMakeFiles/byte_stream_capacity.dir/depend.make
@@ -70,18 +70,18 @@ include tests/CMakeFiles/byte_stream_capacity.dir/progress.make
 include tests/CMakeFiles/byte_stream_capacity.dir/flags.make
 
 tests/CMakeFiles/byte_stream_capacity.dir/byte_stream_capacity.cc.o: tests/CMakeFiles/byte_stream_capacity.dir/flags.make
-tests/CMakeFiles/byte_stream_capacity.dir/byte_stream_capacity.cc.o: /home/vboxuser/Downloads/assignment2/tests/byte_stream_capacity.cc
+tests/CMakeFiles/byte_stream_capacity.dir/byte_stream_capacity.cc.o: /home/vboxuser/Downloads/CN_Assignments/assignment2/tests/byte_stream_capacity.cc
 tests/CMakeFiles/byte_stream_capacity.dir/byte_stream_capacity.cc.o: tests/CMakeFiles/byte_stream_capacity.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/vboxuser/Downloads/assignment2/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object tests/CMakeFiles/byte_stream_capacity.dir/byte_stream_capacity.cc.o"
-	cd /home/vboxuser/Downloads/assignment2/build/tests && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT tests/CMakeFiles/byte_stream_capacity.dir/byte_stream_capacity.cc.o -MF CMakeFiles/byte_stream_capacity.dir/byte_stream_capacity.cc.o.d -o CMakeFiles/byte_stream_capacity.dir/byte_stream_capacity.cc.o -c /home/vboxuser/Downloads/assignment2/tests/byte_stream_capacity.cc
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/vboxuser/Downloads/CN_Assignments/assignment2/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object tests/CMakeFiles/byte_stream_capacity.dir/byte_stream_capacity.cc.o"
+	cd /home/vboxuser/Downloads/CN_Assignments/assignment2/build/tests && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT tests/CMakeFiles/byte_stream_capacity.dir/byte_stream_capacity.cc.o -MF CMakeFiles/byte_stream_capacity.dir/byte_stream_capacity.cc.o.d -o CMakeFiles/byte_stream_capacity.dir/byte_stream_capacity.cc.o -c /home/vboxuser/Downloads/CN_Assignments/assignment2/tests/byte_stream_capacity.cc
 
 tests/CMakeFiles/byte_stream_capacity.dir/byte_stream_capacity.cc.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/byte_stream_capacity.dir/byte_stream_capacity.cc.i"
-	cd /home/vboxuser/Downloads/assignment2/build/tests && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/vboxuser/Downloads/assignment2/tests/byte_stream_capacity.cc > CMakeFiles/byte_stream_capacity.dir/byte_stream_capacity.cc.i
+	cd /home/vboxuser/Downloads/CN_Assignments/assignment2/build/tests && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/vboxuser/Downloads/CN_Assignments/assignment2/tests/byte_stream_capacity.cc > CMakeFiles/byte_stream_capacity.dir/byte_stream_capacity.cc.i
 
 tests/CMakeFiles/byte_stream_capacity.dir/byte_stream_capacity.cc.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/byte_stream_capacity.dir/byte_stream_capacity.cc.s"
-	cd /home/vboxuser/Downloads/assignment2/build/tests && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/vboxuser/Downloads/assignment2/tests/byte_stream_capacity.cc -o CMakeFiles/byte_stream_capacity.dir/byte_stream_capacity.cc.s
+	cd /home/vboxuser/Downloads/CN_Assignments/assignment2/build/tests && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/vboxuser/Downloads/CN_Assignments/assignment2/tests/byte_stream_capacity.cc -o CMakeFiles/byte_stream_capacity.dir/byte_stream_capacity.cc.s
 
 # Object files for target byte_stream_capacity
 byte_stream_capacity_OBJECTS = \
@@ -95,18 +95,18 @@ tests/byte_stream_capacity: tests/CMakeFiles/byte_stream_capacity.dir/build.make
 tests/byte_stream_capacity: tests/libtcp_reciever_checks.a
 tests/byte_stream_capacity: src/libtcp_reciever.a
 tests/byte_stream_capacity: tests/CMakeFiles/byte_stream_capacity.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/vboxuser/Downloads/assignment2/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX executable byte_stream_capacity"
-	cd /home/vboxuser/Downloads/assignment2/build/tests && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/byte_stream_capacity.dir/link.txt --verbose=$(VERBOSE)
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/vboxuser/Downloads/CN_Assignments/assignment2/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX executable byte_stream_capacity"
+	cd /home/vboxuser/Downloads/CN_Assignments/assignment2/build/tests && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/byte_stream_capacity.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
 tests/CMakeFiles/byte_stream_capacity.dir/build: tests/byte_stream_capacity
 .PHONY : tests/CMakeFiles/byte_stream_capacity.dir/build
 
 tests/CMakeFiles/byte_stream_capacity.dir/clean:
-	cd /home/vboxuser/Downloads/assignment2/build/tests && $(CMAKE_COMMAND) -P CMakeFiles/byte_stream_capacity.dir/cmake_clean.cmake
+	cd /home/vboxuser/Downloads/CN_Assignments/assignment2/build/tests && $(CMAKE_COMMAND) -P CMakeFiles/byte_stream_capacity.dir/cmake_clean.cmake
 .PHONY : tests/CMakeFiles/byte_stream_capacity.dir/clean
 
 tests/CMakeFiles/byte_stream_capacity.dir/depend:
-	cd /home/vboxuser/Downloads/assignment2/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/vboxuser/Downloads/assignment2 /home/vboxuser/Downloads/assignment2/tests /home/vboxuser/Downloads/assignment2/build /home/vboxuser/Downloads/assignment2/build/tests /home/vboxuser/Downloads/assignment2/build/tests/CMakeFiles/byte_stream_capacity.dir/DependInfo.cmake "--color=$(COLOR)"
+	cd /home/vboxuser/Downloads/CN_Assignments/assignment2/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/vboxuser/Downloads/CN_Assignments/assignment2 /home/vboxuser/Downloads/CN_Assignments/assignment2/tests /home/vboxuser/Downloads/CN_Assignments/assignment2/build /home/vboxuser/Downloads/CN_Assignments/assignment2/build/tests /home/vboxuser/Downloads/CN_Assignments/assignment2/build/tests/CMakeFiles/byte_stream_capacity.dir/DependInfo.cmake "--color=$(COLOR)"
 .PHONY : tests/CMakeFiles/byte_stream_capacity.dir/depend
 

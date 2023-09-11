@@ -1,7 +1,7 @@
 src/CMakeFiles/tcp_reciever.dir/util/util.cc.o: \
- /home/vboxuser/Downloads/assignment2/src/util/util.cc \
+ /home/vboxuser/Downloads/CN_Assignments/assignment2/src/util/util.cc \
  /usr/include/stdc-predef.h \
- /home/vboxuser/Downloads/assignment2/src/util/util.hh \
+ /home/vboxuser/Downloads/CN_Assignments/assignment2/src/util/util.hh \
  /usr/include/c++/11/algorithm /usr/include/c++/11/utility \
  /usr/include/x86_64-linux-gnu/c++/11/bits/c++config.h \
  /usr/include/x86_64-linux-gnu/c++/11/bits/os_defines.h \

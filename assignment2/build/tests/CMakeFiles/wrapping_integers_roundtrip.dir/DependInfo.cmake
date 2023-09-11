@@ -8,7 +8,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
-  "/home/vboxuser/Downloads/assignment2/tests/wrapping_integers_roundtrip.cc" "tests/CMakeFiles/wrapping_integers_roundtrip.dir/wrapping_integers_roundtrip.cc.o" "gcc" "tests/CMakeFiles/wrapping_integers_roundtrip.dir/wrapping_integers_roundtrip.cc.o.d"
+  "/home/vboxuser/Downloads/CN_Assignments/assignment2/tests/wrapping_integers_roundtrip.cc" "tests/CMakeFiles/wrapping_integers_roundtrip.dir/wrapping_integers_roundtrip.cc.o" "gcc" "tests/CMakeFiles/wrapping_integers_roundtrip.dir/wrapping_integers_roundtrip.cc.o.d"
   )
 
 # Targets to which this target links which contain Fortran sources.
