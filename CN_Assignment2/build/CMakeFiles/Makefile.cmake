@@ -100,12 +100,12 @@ set(CMAKE_MAKEFILE_DEPENDS
   "/home/vboxuser/.local/lib/python3.10/site-packages/cmake/data/share/cmake-3.27/Modules/Platform/Linux-Initialize.cmake"
   "/home/vboxuser/.local/lib/python3.10/site-packages/cmake/data/share/cmake-3.27/Modules/Platform/Linux.cmake"
   "/home/vboxuser/.local/lib/python3.10/site-packages/cmake/data/share/cmake-3.27/Modules/Platform/UnixPaths.cmake"
-  "/home/vboxuser/Downloads/CN_Assignment2/CMakeLists.txt"
+  "/home/vboxuser/Downloads/CN_Assignments/CN_Assignment2/CMakeLists.txt"
   "CMakeFiles/3.27.2/CMakeCCompiler.cmake"
   "CMakeFiles/3.27.2/CMakeCXXCompiler.cmake"
   "CMakeFiles/3.27.2/CMakeSystem.cmake"
-  "/home/vboxuser/Downloads/CN_Assignment2/src/CMakeLists.txt"
-  "/home/vboxuser/Downloads/CN_Assignment2/tests/CMakeLists.txt"
+  "/home/vboxuser/Downloads/CN_Assignments/CN_Assignment2/src/CMakeLists.txt"
+  "/home/vboxuser/Downloads/CN_Assignments/CN_Assignment2/tests/CMakeLists.txt"
   )
 
 # The corresponding makefile is:

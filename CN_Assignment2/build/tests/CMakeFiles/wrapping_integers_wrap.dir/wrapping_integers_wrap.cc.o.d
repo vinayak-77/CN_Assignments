@@ -1,9 +1,9 @@
 tests/CMakeFiles/wrapping_integers_wrap.dir/wrapping_integers_wrap.cc.o: \
- /home/vboxuser/Downloads/CN_Assignment2/tests/wrapping_integers_wrap.cc \
+ /home/vboxuser/Downloads/CN_Assignments/CN_Assignment2/tests/wrapping_integers_wrap.cc \
  /usr/include/stdc-predef.h \
- /home/vboxuser/Downloads/CN_Assignment2/tests/test_should_be.hh \
- /home/vboxuser/Downloads/CN_Assignment2/tests/string_conversions.hh \
- /home/vboxuser/Downloads/CN_Assignment2/src/wrapping_integers.hh \
+ /home/vboxuser/Downloads/CN_Assignments/CN_Assignment2/tests/test_should_be.hh \
+ /home/vboxuser/Downloads/CN_Assignments/CN_Assignment2/tests/string_conversions.hh \
+ /home/vboxuser/Downloads/CN_Assignments/CN_Assignment2/src/wrapping_integers.hh \
  /usr/include/c++/11/cstdint \
  /usr/include/x86_64-linux-gnu/c++/11/bits/c++config.h \
  /usr/include/x86_64-linux-gnu/c++/11/bits/os_defines.h \

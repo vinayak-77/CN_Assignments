@@ -1,9 +1,9 @@
 src/CMakeFiles/tcp_reciever.dir/util/eventloop.cc.o: \
- /home/vboxuser/Downloads/CN_Assignment2/src/util/eventloop.cc \
+ /home/vboxuser/Downloads/CN_Assignments/CN_Assignment2/src/util/eventloop.cc \
  /usr/include/stdc-predef.h \
- /home/vboxuser/Downloads/CN_Assignment2/src/util/eventloop.hh \
- /home/vboxuser/Downloads/CN_Assignment2/src/util/file_descriptor.hh \
- /home/vboxuser/Downloads/CN_Assignment2/src/util/buffer.hh \
+ /home/vboxuser/Downloads/CN_Assignments/CN_Assignment2/src/util/eventloop.hh \
+ /home/vboxuser/Downloads/CN_Assignments/CN_Assignment2/src/util/file_descriptor.hh \
+ /home/vboxuser/Downloads/CN_Assignments/CN_Assignment2/src/util/buffer.hh \
  /usr/include/c++/11/algorithm /usr/include/c++/11/utility \
  /usr/include/x86_64-linux-gnu/c++/11/bits/c++config.h \
  /usr/include/x86_64-linux-gnu/c++/11/bits/os_defines.h \
@@ -178,7 +178,7 @@ src/CMakeFiles/tcp_reciever.dir/util/eventloop.cc.o: \
  /usr/include/c++/11/bits/stl_list.h /usr/include/c++/11/bits/list.tcc \
  /usr/include/poll.h /usr/include/x86_64-linux-gnu/sys/poll.h \
  /usr/include/x86_64-linux-gnu/bits/poll.h \
- /home/vboxuser/Downloads/CN_Assignment2/src/util/util.hh \
+ /home/vboxuser/Downloads/CN_Assignments/CN_Assignment2/src/util/util.hh \
  /usr/include/c++/11/iterator /usr/include/c++/11/bits/stream_iterator.h \
  /usr/include/c++/11/bits/streambuf_iterator.h \
  /usr/include/c++/11/streambuf /usr/include/c++/11/bits/ios_base.h \

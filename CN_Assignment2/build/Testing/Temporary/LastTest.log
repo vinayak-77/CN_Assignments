@@ -1,182 +1,78 @@
-Start testing: Sep 12 00:53 IST
+Start testing: Sep 12 17:44 IST
 ----------------------------------------------------------
-16/23 Testing: fsm_stream_reassembler_cap
-16/23 Test: fsm_stream_reassembler_cap
-Command: "/home/vboxuser/Downloads/CN_Assignment2/build/tests/fsm_stream_reassembler_cap"
-Directory: /home/vboxuser/Downloads/CN_Assignment2/build/tests
-"fsm_stream_reassembler_cap" start time: Sep 12 00:53 IST
-Output:
-----------------------------------------------------------
-<end of output>
-Test time =   0.16 sec
-----------------------------------------------------------
-Test Passed.
-"fsm_stream_reassembler_cap" end time: Sep 12 00:53 IST
-"fsm_stream_reassembler_cap" time elapsed: 00:00:00
-----------------------------------------------------------
-
-17/23 Testing: fsm_stream_reassembler_single
-17/23 Test: fsm_stream_reassembler_single
-Command: "/home/vboxuser/Downloads/CN_Assignment2/build/tests/fsm_stream_reassembler_single"
-Directory: /home/vboxuser/Downloads/CN_Assignment2/build/tests
-"fsm_stream_reassembler_single" start time: Sep 12 00:53 IST
-Output:
-----------------------------------------------------------
-Test Failure on expectation:
-	Expectation: net bytes assembled = 8
-
-Failure message:
-	The reassembler was expected to have `8` total bytes assembled, but there were `7`
-
-List of steps that executed successfully:
-	Initialized (capacity = 8)
-	Action:      substring submitted with data "abc", index `0`, eof `0`
-	Expectation: net bytes assembled = 3
-	Action:      substring submitted with data "bcdefgh", index `1`, eof `1`
-
-Exception: The reassembler was expected to have `8` total bytes assembled, but there were `7`
-<end of output>
-Test time =   0.01 sec
-----------------------------------------------------------
-Test Failed.
-"fsm_stream_reassembler_single" end time: Sep 12 00:53 IST
-"fsm_stream_reassembler_single" time elapsed: 00:00:00
-----------------------------------------------------------
-
-18/23 Testing: fsm_stream_reassembler_seq
-18/23 Test: fsm_stream_reassembler_seq
-Command: "/home/vboxuser/Downloads/CN_Assignment2/build/tests/fsm_stream_reassembler_seq"
-Directory: /home/vboxuser/Downloads/CN_Assignment2/build/tests
-"fsm_stream_reassembler_seq" start time: Sep 12 00:53 IST
+5/23 Testing: byte_stream_construction
+5/23 Test: byte_stream_construction
+Command: "/home/vboxuser/Downloads/CN_Assignments/CN_Assignment2/build/tests/byte_stream_construction"
+Directory: /home/vboxuser/Downloads/CN_Assignments/CN_Assignment2/build/tests
+"byte_stream_construction" start time: Sep 12 17:44 IST
 Output:
 ----------------------------------------------------------
 <end of output>
 Test time =   0.01 sec
 ----------------------------------------------------------
 Test Passed.
-"fsm_stream_reassembler_seq" end time: Sep 12 00:53 IST
-"fsm_stream_reassembler_seq" time elapsed: 00:00:00
+"byte_stream_construction" end time: Sep 12 17:44 IST
+"byte_stream_construction" time elapsed: 00:00:00
 ----------------------------------------------------------
 
-19/23 Testing: fsm_stream_reassembler_dup
-19/23 Test: fsm_stream_reassembler_dup
-Command: "/home/vboxuser/Downloads/CN_Assignment2/build/tests/fsm_stream_reassembler_dup"
-Directory: /home/vboxuser/Downloads/CN_Assignment2/build/tests
-"fsm_stream_reassembler_dup" start time: Sep 12 00:53 IST
+6/23 Testing: byte_stream_one_write
+6/23 Test: byte_stream_one_write
+Command: "/home/vboxuser/Downloads/CN_Assignments/CN_Assignment2/build/tests/byte_stream_one_write"
+Directory: /home/vboxuser/Downloads/CN_Assignments/CN_Assignment2/build/tests
+"byte_stream_one_write" start time: Sep 12 17:44 IST
 Output:
 ----------------------------------------------------------
-Test Failure on expectation:
-	Action:      substring submitted with data "abcd", index `0`, eof `0`
+<end of output>
+Test time =   0.01 sec
+----------------------------------------------------------
+Test Passed.
+"byte_stream_one_write" end time: Sep 12 17:44 IST
+"byte_stream_one_write" time elapsed: 00:00:00
+----------------------------------------------------------
 
-Failure message:
-	basic_string::substr: __pos (which is 8) > this->size() (which is 4)
+7/23 Testing: byte_stream_two_writes
+7/23 Test: byte_stream_two_writes
+Command: "/home/vboxuser/Downloads/CN_Assignments/CN_Assignment2/build/tests/byte_stream_two_writes"
+Directory: /home/vboxuser/Downloads/CN_Assignments/CN_Assignment2/build/tests
+"byte_stream_two_writes" start time: Sep 12 17:44 IST
+Output:
+----------------------------------------------------------
+<end of output>
+Test time =   0.02 sec
+----------------------------------------------------------
+Test Passed.
+"byte_stream_two_writes" end time: Sep 12 17:44 IST
+"byte_stream_two_writes" time elapsed: 00:00:00
+----------------------------------------------------------
 
-List of steps that executed successfully:
-	Initialized (capacity = 65000)
-	Action:      substring submitted with data "abcd", index `0`, eof `0`
-	Expectation: net bytes assembled = 4
-	Expectation: stream_out().buffer_size() returned 4, and stream_out().read(4) returned the string "abcd"
-	Expectation: not at EOF
-	Action:      substring submitted with data "abcd", index `4`, eof `0`
-	Expectation: net bytes assembled = 8
-	Expectation: stream_out().buffer_size() returned 4, and stream_out().read(4) returned the string "abcd"
-	Expectation: not at EOF
+8/23 Testing: byte_stream_capacity
+8/23 Test: byte_stream_capacity
+Command: "/home/vboxuser/Downloads/CN_Assignments/CN_Assignment2/build/tests/byte_stream_capacity"
+Directory: /home/vboxuser/Downloads/CN_Assignments/CN_Assignment2/build/tests
+"byte_stream_capacity" start time: Sep 12 17:44 IST
+Output:
+----------------------------------------------------------
+<end of output>
+Test time =   1.57 sec
+----------------------------------------------------------
+Test Passed.
+"byte_stream_capacity" end time: Sep 12 17:44 IST
+"byte_stream_capacity" time elapsed: 00:00:01
+----------------------------------------------------------
 
-Exception: The test caused your implementation to throw an exception!
+9/23 Testing: byte_stream_many_writes
+9/23 Test: byte_stream_many_writes
+Command: "/home/vboxuser/Downloads/CN_Assignments/CN_Assignment2/build/tests/byte_stream_many_writes"
+Directory: /home/vboxuser/Downloads/CN_Assignments/CN_Assignment2/build/tests
+"byte_stream_many_writes" start time: Sep 12 17:44 IST
+Output:
+----------------------------------------------------------
 <end of output>
 Test time =   0.00 sec
 ----------------------------------------------------------
-Test Failed.
-"fsm_stream_reassembler_dup" end time: Sep 12 00:53 IST
-"fsm_stream_reassembler_dup" time elapsed: 00:00:00
-----------------------------------------------------------
-
-20/23 Testing: fsm_stream_reassembler_holes
-20/23 Test: fsm_stream_reassembler_holes
-Command: "/home/vboxuser/Downloads/CN_Assignment2/build/tests/fsm_stream_reassembler_holes"
-Directory: /home/vboxuser/Downloads/CN_Assignment2/build/tests
-"fsm_stream_reassembler_holes" start time: Sep 12 00:53 IST
-Output:
-----------------------------------------------------------
-Test Failure on expectation:
-	Expectation: not at EOF
-
-Failure message:
-	The reassembler was expected to **not** be at EOF, but was
-
-List of steps that executed successfully:
-	Initialized (capacity = 65000)
-	Action:      substring submitted with data "b", index `1`, eof `1`
-	Expectation: net bytes assembled = 0
-	Expectation: stream_out().buffer_size() returned 0, and stream_out().read(0) returned the string ""
-
-Exception: The reassembler was expected to **not** be at EOF, but was
-<end of output>
-Test time =   0.00 sec
-----------------------------------------------------------
-Test Failed.
-"fsm_stream_reassembler_holes" end time: Sep 12 00:53 IST
-"fsm_stream_reassembler_holes" time elapsed: 00:00:00
-----------------------------------------------------------
-
-21/23 Testing: fsm_stream_reassembler_many
-21/23 Test: fsm_stream_reassembler_many
-Command: "/home/vboxuser/Downloads/CN_Assignment2/build/tests/fsm_stream_reassembler_many"
-Directory: /home/vboxuser/Downloads/CN_Assignment2/build/tests
-"fsm_stream_reassembler_many" start time: Sep 12 00:53 IST
-Output:
-----------------------------------------------------------
-<end of output>
-Test time =   0.58 sec
-----------------------------------------------------------
 Test Passed.
-"fsm_stream_reassembler_many" end time: Sep 12 00:53 IST
-"fsm_stream_reassembler_many" time elapsed: 00:00:00
+"byte_stream_many_writes" end time: Sep 12 17:44 IST
+"byte_stream_many_writes" time elapsed: 00:00:00
 ----------------------------------------------------------
 
-22/23 Testing: fsm_stream_reassembler_overlapping
-22/23 Test: fsm_stream_reassembler_overlapping
-Command: "/home/vboxuser/Downloads/CN_Assignment2/build/tests/fsm_stream_reassembler_overlapping"
-Directory: /home/vboxuser/Downloads/CN_Assignment2/build/tests
-"fsm_stream_reassembler_overlapping" start time: Sep 12 00:53 IST
-Output:
-----------------------------------------------------------
-Test Failure on expectation:
-	Expectation: bytes not assembled = 0
-
-Failure message:
-	The reassembler was expected to have `0` bytes not assembled, but there were `1`
-
-List of steps that executed successfully:
-	Initialized (capacity = 1000)
-	Action:      substring submitted with data "b", index `1`, eof `0`
-	Expectation: stream_out().buffer_size() returned 0, and stream_out().read(0) returned the string ""
-	Action:      substring submitted with data "ab", index `0`, eof `0`
-	Expectation: stream_out().buffer_size() returned 2, and stream_out().read(2) returned the string "ab"
-
-Exception: The reassembler was expected to have `0` bytes not assembled, but there were `1`
-<end of output>
-Test time =   0.01 sec
-----------------------------------------------------------
-Test Failed.
-"fsm_stream_reassembler_overlapping" end time: Sep 12 00:53 IST
-"fsm_stream_reassembler_overlapping" time elapsed: 00:00:00
-----------------------------------------------------------
-
-23/23 Testing: fsm_stream_reassembler_win
-23/23 Test: fsm_stream_reassembler_win
-Command: "/home/vboxuser/Downloads/CN_Assignment2/build/tests/fsm_stream_reassembler_win"
-Directory: /home/vboxuser/Downloads/CN_Assignment2/build/tests
-"fsm_stream_reassembler_win" start time: Sep 12 00:53 IST
-Output:
-----------------------------------------------------------
-Exception: test 2 - number of RX bytes is incorrect
-<end of output>
-Test time =   0.01 sec
-----------------------------------------------------------
-Test Failed.
-"fsm_stream_reassembler_win" end time: Sep 12 00:53 IST
-"fsm_stream_reassembler_win" time elapsed: 00:00:00
-----------------------------------------------------------
-
-End testing: Sep 12 00:53 IST
+End testing: Sep 12 17:44 IST

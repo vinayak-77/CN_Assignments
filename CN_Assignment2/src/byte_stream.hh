@@ -16,6 +16,7 @@ class ByteStream {
     size_t lengthWritten;
     size_t lengthRead;
     std::string Input;
+    std::string Output;
     size_t currPtrLeft;
     size_t currPtrRight;
     bool end;

@@ -1,8 +1,8 @@
 src/CMakeFiles/tcp_reciever.dir/tcp_receiver.cc.o: \
- /home/vboxuser/Downloads/CN_Assignment2/src/tcp_receiver.cc \
+ /home/vboxuser/Downloads/CN_Assignments/CN_Assignment2/src/tcp_receiver.cc \
  /usr/include/stdc-predef.h \
- /home/vboxuser/Downloads/CN_Assignment2/src/tcp_receiver.hh \
- /home/vboxuser/Downloads/CN_Assignment2/src/byte_stream.hh \
+ /home/vboxuser/Downloads/CN_Assignments/CN_Assignment2/src/tcp_receiver.hh \
+ /home/vboxuser/Downloads/CN_Assignments/CN_Assignment2/src/byte_stream.hh \
  /usr/include/c++/11/deque /usr/include/c++/11/bits/stl_algobase.h \
  /usr/include/x86_64-linux-gnu/c++/11/bits/c++config.h \
  /usr/include/x86_64-linux-gnu/c++/11/bits/os_defines.h \
@@ -134,7 +134,7 @@ src/CMakeFiles/tcp_reciever.dir/tcp_receiver.cc.o: \
  /usr/include/x86_64-linux-gnu/bits/types/error_t.h \
  /usr/include/c++/11/bits/charconv.h \
  /usr/include/c++/11/bits/basic_string.tcc \
- /home/vboxuser/Downloads/CN_Assignment2/src/stream_reassembler.hh \
+ /home/vboxuser/Downloads/CN_Assignments/CN_Assignment2/src/stream_reassembler.hh \
  /usr/include/c++/11/algorithm /usr/include/c++/11/utility \
  /usr/include/c++/11/bits/stl_relops.h \
  /usr/include/c++/11/bits/stl_algo.h \
@@ -180,8 +180,8 @@ src/CMakeFiles/tcp_reciever.dir/tcp_receiver.cc.o: \
  /usr/include/c++/11/bits/basic_ios.tcc \
  /usr/include/c++/11/bits/ostream.tcc /usr/include/c++/11/istream \
  /usr/include/c++/11/bits/istream.tcc \
- /home/vboxuser/Downloads/CN_Assignment2/src/tcp_helpers/tcp_segment.hh \
- /home/vboxuser/Downloads/CN_Assignment2/src/util/buffer.hh \
+ /home/vboxuser/Downloads/CN_Assignments/CN_Assignment2/src/tcp_helpers/tcp_segment.hh \
+ /home/vboxuser/Downloads/CN_Assignments/CN_Assignment2/src/util/buffer.hh \
  /usr/include/c++/11/memory \
  /usr/include/c++/11/bits/stl_raw_storage_iter.h \
  /usr/include/c++/11/bits/align.h /usr/include/c++/11/bit \
@@ -201,9 +201,9 @@ src/CMakeFiles/tcp_reciever.dir/tcp_receiver.cc.o: \
  /usr/include/x86_64-linux-gnu/bits/types/struct_iovec.h \
  /usr/include/x86_64-linux-gnu/bits/uio_lim.h \
  /usr/include/x86_64-linux-gnu/bits/uio-ext.h \
- /home/vboxuser/Downloads/CN_Assignment2/src/tcp_helpers/tcp_header.hh \
- /home/vboxuser/Downloads/CN_Assignment2/src/util/parser.hh \
- /home/vboxuser/Downloads/CN_Assignment2/src/util/buffer.hh \
- /home/vboxuser/Downloads/CN_Assignment2/src/wrapping_integers.hh \
- /home/vboxuser/Downloads/CN_Assignment2/src/wrapping_integers.hh \
+ /home/vboxuser/Downloads/CN_Assignments/CN_Assignment2/src/tcp_helpers/tcp_header.hh \
+ /home/vboxuser/Downloads/CN_Assignments/CN_Assignment2/src/util/parser.hh \
+ /home/vboxuser/Downloads/CN_Assignments/CN_Assignment2/src/util/buffer.hh \
+ /home/vboxuser/Downloads/CN_Assignments/CN_Assignment2/src/wrapping_integers.hh \
+ /home/vboxuser/Downloads/CN_Assignments/CN_Assignment2/src/wrapping_integers.hh \
  /usr/include/c++/11/optional

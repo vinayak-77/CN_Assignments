@@ -53,10 +53,10 @@ RM = /home/vboxuser/.local/lib/python3.10/site-packages/cmake/data/bin/cmake -E 
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/vboxuser/Downloads/CN_Assignment2
+CMAKE_SOURCE_DIR = /home/vboxuser/Downloads/CN_Assignments/CN_Assignment2
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/vboxuser/Downloads/CN_Assignment2/build
+CMAKE_BINARY_DIR = /home/vboxuser/Downloads/CN_Assignments/CN_Assignment2/build
 
 # Include any dependencies generated for this target.
 include tests/CMakeFiles/byte_stream_one_write.dir/depend.make
@@ -70,18 +70,18 @@ include tests/CMakeFiles/byte_stream_one_write.dir/progress.make
 include tests/CMakeFiles/byte_stream_one_write.dir/flags.make
 
 tests/CMakeFiles/byte_stream_one_write.dir/byte_stream_one_write.cc.o: tests/CMakeFiles/byte_stream_one_write.dir/flags.make
-tests/CMakeFiles/byte_stream_one_write.dir/byte_stream_one_write.cc.o: /home/vboxuser/Downloads/CN_Assignment2/tests/byte_stream_one_write.cc
+tests/CMakeFiles/byte_stream_one_write.dir/byte_stream_one_write.cc.o: /home/vboxuser/Downloads/CN_Assignments/CN_Assignment2/tests/byte_stream_one_write.cc
 tests/CMakeFiles/byte_stream_one_write.dir/byte_stream_one_write.cc.o: tests/CMakeFiles/byte_stream_one_write.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/vboxuser/Downloads/CN_Assignment2/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object tests/CMakeFiles/byte_stream_one_write.dir/byte_stream_one_write.cc.o"
-	cd /home/vboxuser/Downloads/CN_Assignment2/build/tests && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT tests/CMakeFiles/byte_stream_one_write.dir/byte_stream_one_write.cc.o -MF CMakeFiles/byte_stream_one_write.dir/byte_stream_one_write.cc.o.d -o CMakeFiles/byte_stream_one_write.dir/byte_stream_one_write.cc.o -c /home/vboxuser/Downloads/CN_Assignment2/tests/byte_stream_one_write.cc
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/vboxuser/Downloads/CN_Assignments/CN_Assignment2/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object tests/CMakeFiles/byte_stream_one_write.dir/byte_stream_one_write.cc.o"
+	cd /home/vboxuser/Downloads/CN_Assignments/CN_Assignment2/build/tests && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT tests/CMakeFiles/byte_stream_one_write.dir/byte_stream_one_write.cc.o -MF CMakeFiles/byte_stream_one_write.dir/byte_stream_one_write.cc.o.d -o CMakeFiles/byte_stream_one_write.dir/byte_stream_one_write.cc.o -c /home/vboxuser/Downloads/CN_Assignments/CN_Assignment2/tests/byte_stream_one_write.cc
 
 tests/CMakeFiles/byte_stream_one_write.dir/byte_stream_one_write.cc.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/byte_stream_one_write.dir/byte_stream_one_write.cc.i"
-	cd /home/vboxuser/Downloads/CN_Assignment2/build/tests && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/vboxuser/Downloads/CN_Assignment2/tests/byte_stream_one_write.cc > CMakeFiles/byte_stream_one_write.dir/byte_stream_one_write.cc.i
+	cd /home/vboxuser/Downloads/CN_Assignments/CN_Assignment2/build/tests && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/vboxuser/Downloads/CN_Assignments/CN_Assignment2/tests/byte_stream_one_write.cc > CMakeFiles/byte_stream_one_write.dir/byte_stream_one_write.cc.i
 
 tests/CMakeFiles/byte_stream_one_write.dir/byte_stream_one_write.cc.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/byte_stream_one_write.dir/byte_stream_one_write.cc.s"
-	cd /home/vboxuser/Downloads/CN_Assignment2/build/tests && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/vboxuser/Downloads/CN_Assignment2/tests/byte_stream_one_write.cc -o CMakeFiles/byte_stream_one_write.dir/byte_stream_one_write.cc.s
+	cd /home/vboxuser/Downloads/CN_Assignments/CN_Assignment2/build/tests && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/vboxuser/Downloads/CN_Assignments/CN_Assignment2/tests/byte_stream_one_write.cc -o CMakeFiles/byte_stream_one_write.dir/byte_stream_one_write.cc.s
 
 # Object files for target byte_stream_one_write
 byte_stream_one_write_OBJECTS = \
@@ -95,18 +95,18 @@ tests/byte_stream_one_write: tests/CMakeFiles/byte_stream_one_write.dir/build.ma
 tests/byte_stream_one_write: tests/libtcp_reciever_checks.a
 tests/byte_stream_one_write: src/libtcp_reciever.a
 tests/byte_stream_one_write: tests/CMakeFiles/byte_stream_one_write.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/vboxuser/Downloads/CN_Assignment2/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX executable byte_stream_one_write"
-	cd /home/vboxuser/Downloads/CN_Assignment2/build/tests && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/byte_stream_one_write.dir/link.txt --verbose=$(VERBOSE)
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/vboxuser/Downloads/CN_Assignments/CN_Assignment2/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX executable byte_stream_one_write"
+	cd /home/vboxuser/Downloads/CN_Assignments/CN_Assignment2/build/tests && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/byte_stream_one_write.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
 tests/CMakeFiles/byte_stream_one_write.dir/build: tests/byte_stream_one_write
 .PHONY : tests/CMakeFiles/byte_stream_one_write.dir/build
 
 tests/CMakeFiles/byte_stream_one_write.dir/clean:
-	cd /home/vboxuser/Downloads/CN_Assignment2/build/tests && $(CMAKE_COMMAND) -P CMakeFiles/byte_stream_one_write.dir/cmake_clean.cmake
+	cd /home/vboxuser/Downloads/CN_Assignments/CN_Assignment2/build/tests && $(CMAKE_COMMAND) -P CMakeFiles/byte_stream_one_write.dir/cmake_clean.cmake
 .PHONY : tests/CMakeFiles/byte_stream_one_write.dir/clean
 
 tests/CMakeFiles/byte_stream_one_write.dir/depend:
-	cd /home/vboxuser/Downloads/CN_Assignment2/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/vboxuser/Downloads/CN_Assignment2 /home/vboxuser/Downloads/CN_Assignment2/tests /home/vboxuser/Downloads/CN_Assignment2/build /home/vboxuser/Downloads/CN_Assignment2/build/tests /home/vboxuser/Downloads/CN_Assignment2/build/tests/CMakeFiles/byte_stream_one_write.dir/DependInfo.cmake "--color=$(COLOR)"
+	cd /home/vboxuser/Downloads/CN_Assignments/CN_Assignment2/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/vboxuser/Downloads/CN_Assignments/CN_Assignment2 /home/vboxuser/Downloads/CN_Assignments/CN_Assignment2/tests /home/vboxuser/Downloads/CN_Assignments/CN_Assignment2/build /home/vboxuser/Downloads/CN_Assignments/CN_Assignment2/build/tests /home/vboxuser/Downloads/CN_Assignments/CN_Assignment2/build/tests/CMakeFiles/byte_stream_one_write.dir/DependInfo.cmake "--color=$(COLOR)"
 .PHONY : tests/CMakeFiles/byte_stream_one_write.dir/depend
 

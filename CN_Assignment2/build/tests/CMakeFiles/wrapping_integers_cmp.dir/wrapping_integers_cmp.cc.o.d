@@ -1,9 +1,9 @@
 tests/CMakeFiles/wrapping_integers_cmp.dir/wrapping_integers_cmp.cc.o: \
- /home/vboxuser/Downloads/CN_Assignment2/tests/wrapping_integers_cmp.cc \
+ /home/vboxuser/Downloads/CN_Assignments/CN_Assignment2/tests/wrapping_integers_cmp.cc \
  /usr/include/stdc-predef.h \
- /home/vboxuser/Downloads/CN_Assignment2/tests/test_should_be.hh \
- /home/vboxuser/Downloads/CN_Assignment2/tests/string_conversions.hh \
- /home/vboxuser/Downloads/CN_Assignment2/src/wrapping_integers.hh \
+ /home/vboxuser/Downloads/CN_Assignments/CN_Assignment2/tests/test_should_be.hh \
+ /home/vboxuser/Downloads/CN_Assignments/CN_Assignment2/tests/string_conversions.hh \
+ /home/vboxuser/Downloads/CN_Assignments/CN_Assignment2/src/wrapping_integers.hh \
  /usr/include/c++/11/cstdint \
  /usr/include/x86_64-linux-gnu/c++/11/bits/c++config.h \
  /usr/include/x86_64-linux-gnu/c++/11/bits/os_defines.h \
@@ -154,7 +154,7 @@ tests/CMakeFiles/wrapping_integers_cmp.dir/wrapping_integers_cmp.cc.o: \
  /usr/include/c++/11/sstream /usr/include/c++/11/istream \
  /usr/include/c++/11/bits/istream.tcc \
  /usr/include/c++/11/bits/sstream.tcc \
- /home/vboxuser/Downloads/CN_Assignment2/src/util/util.hh \
+ /home/vboxuser/Downloads/CN_Assignments/CN_Assignment2/src/util/util.hh \
  /usr/include/c++/11/algorithm /usr/include/c++/11/bits/stl_algo.h \
  /usr/include/c++/11/bits/algorithmfwd.h \
  /usr/include/c++/11/bits/stl_heap.h \

@@ -12,7 +12,6 @@
 using namespace std;
 
 // deque <char> buffer;
-string Input;
 
 ByteStream::ByteStream(const size_t capa)
 {
@@ -20,18 +19,24 @@ ByteStream::ByteStream(const size_t capa)
   this->currPtrLeft = 0;
   this->currPtrRight = 0;
   this->end = false;
-  this->Input = Input;
+  this->Input = "";
+  this->Output = "";
   this->lengthWritten = 0;
   this->lengthRead = 0;
 }
 
 size_t ByteStream::write(const string &data) {
   
-  int n = data.length();
-  int i = 0;
+  size_t n = data.length();
+  size_t i = 0;
+
+  if(capacity<n){
+    set_error();
+  }
   
   while(capacity && i<n){
     Input+=data[i];
+    Output+=data[i];
     buffer.push_back(data[i]);
     i++;
     capacity--;
@@ -39,35 +44,26 @@ size_t ByteStream::write(const string &data) {
     currPtrRight++;
 
   }
-  if(capacity<n){
-    set_error();
-    
-  }
+  
   return i;
 }
 
 //! \param[in] len bytes will be copied from the output side of the buffer
 string ByteStream::peek_output(const size_t len) const {
   string output;
-  // if(currPtrLeft+len>currPtrRight){
-  //   this->set_error();
-  //   return output;
-  // }
   
-  for(int i = currPtrLeft;i<currPtrLeft+len;i++){
+  size_t start = currPtrLeft;
+  for(size_t i = start;i<start+len && i<currPtrRight;i++){
     
-    output+=Input[i];
+    output+=Output[i];
   }
+  
   return output;
 }
 
 //! \param[in] len bytes will be removed from the output side of the buffer
 void ByteStream::pop_output(const size_t len) {
-  string output;
-  //if(currPtrLeft+len>currPtrRight){
-    //set_error();
-    //
-  //}
+  
   size_t remLen = len;
   while(remLen && currPtrLeft<currPtrRight){
     this->buffer.pop_front();
@@ -86,15 +82,16 @@ void ByteStream::pop_output(const size_t len) {
 //! \returns a string
 std::string ByteStream::read(const size_t len) {
   string output;
-  
-  for(int i = currPtrLeft;i<currPtrLeft+len && i<currPtrRight;i++){
+  size_t start = currPtrLeft;
+  for(size_t i = start;i<start+len && i<currPtrRight;i++){
     this->buffer.pop_front();
     capacity++;
-    output+=Input[i];
+    output+=Output[i];
     lengthRead++;
+    currPtrLeft++;
   }
-  currPtrLeft+=len;
-  if(currPtrLeft+len>currPtrRight){
+  
+  if(start+len>currPtrRight){
     set_error();
   }
   return output;

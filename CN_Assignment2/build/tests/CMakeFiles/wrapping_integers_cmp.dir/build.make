@@ -53,10 +53,10 @@ RM = /home/vboxuser/.local/lib/python3.10/site-packages/cmake/data/bin/cmake -E 
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/vboxuser/Downloads/CN_Assignment2
+CMAKE_SOURCE_DIR = /home/vboxuser/Downloads/CN_Assignments/CN_Assignment2
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/vboxuser/Downloads/CN_Assignment2/build
+CMAKE_BINARY_DIR = /home/vboxuser/Downloads/CN_Assignments/CN_Assignment2/build
 
 # Include any dependencies generated for this target.
 include tests/CMakeFiles/wrapping_integers_cmp.dir/depend.make
@@ -70,18 +70,18 @@ include tests/CMakeFiles/wrapping_integers_cmp.dir/progress.make
 include tests/CMakeFiles/wrapping_integers_cmp.dir/flags.make
 
 tests/CMakeFiles/wrapping_integers_cmp.dir/wrapping_integers_cmp.cc.o: tests/CMakeFiles/wrapping_integers_cmp.dir/flags.make
-tests/CMakeFiles/wrapping_integers_cmp.dir/wrapping_integers_cmp.cc.o: /home/vboxuser/Downloads/CN_Assignment2/tests/wrapping_integers_cmp.cc
+tests/CMakeFiles/wrapping_integers_cmp.dir/wrapping_integers_cmp.cc.o: /home/vboxuser/Downloads/CN_Assignments/CN_Assignment2/tests/wrapping_integers_cmp.cc
 tests/CMakeFiles/wrapping_integers_cmp.dir/wrapping_integers_cmp.cc.o: tests/CMakeFiles/wrapping_integers_cmp.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/vboxuser/Downloads/CN_Assignment2/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object tests/CMakeFiles/wrapping_integers_cmp.dir/wrapping_integers_cmp.cc.o"
-	cd /home/vboxuser/Downloads/CN_Assignment2/build/tests && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT tests/CMakeFiles/wrapping_integers_cmp.dir/wrapping_integers_cmp.cc.o -MF CMakeFiles/wrapping_integers_cmp.dir/wrapping_integers_cmp.cc.o.d -o CMakeFiles/wrapping_integers_cmp.dir/wrapping_integers_cmp.cc.o -c /home/vboxuser/Downloads/CN_Assignment2/tests/wrapping_integers_cmp.cc
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/vboxuser/Downloads/CN_Assignments/CN_Assignment2/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object tests/CMakeFiles/wrapping_integers_cmp.dir/wrapping_integers_cmp.cc.o"
+	cd /home/vboxuser/Downloads/CN_Assignments/CN_Assignment2/build/tests && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT tests/CMakeFiles/wrapping_integers_cmp.dir/wrapping_integers_cmp.cc.o -MF CMakeFiles/wrapping_integers_cmp.dir/wrapping_integers_cmp.cc.o.d -o CMakeFiles/wrapping_integers_cmp.dir/wrapping_integers_cmp.cc.o -c /home/vboxuser/Downloads/CN_Assignments/CN_Assignment2/tests/wrapping_integers_cmp.cc
 
 tests/CMakeFiles/wrapping_integers_cmp.dir/wrapping_integers_cmp.cc.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/wrapping_integers_cmp.dir/wrapping_integers_cmp.cc.i"
-	cd /home/vboxuser/Downloads/CN_Assignment2/build/tests && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/vboxuser/Downloads/CN_Assignment2/tests/wrapping_integers_cmp.cc > CMakeFiles/wrapping_integers_cmp.dir/wrapping_integers_cmp.cc.i
+	cd /home/vboxuser/Downloads/CN_Assignments/CN_Assignment2/build/tests && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/vboxuser/Downloads/CN_Assignments/CN_Assignment2/tests/wrapping_integers_cmp.cc > CMakeFiles/wrapping_integers_cmp.dir/wrapping_integers_cmp.cc.i
 
 tests/CMakeFiles/wrapping_integers_cmp.dir/wrapping_integers_cmp.cc.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/wrapping_integers_cmp.dir/wrapping_integers_cmp.cc.s"
-	cd /home/vboxuser/Downloads/CN_Assignment2/build/tests && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/vboxuser/Downloads/CN_Assignment2/tests/wrapping_integers_cmp.cc -o CMakeFiles/wrapping_integers_cmp.dir/wrapping_integers_cmp.cc.s
+	cd /home/vboxuser/Downloads/CN_Assignments/CN_Assignment2/build/tests && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/vboxuser/Downloads/CN_Assignments/CN_Assignment2/tests/wrapping_integers_cmp.cc -o CMakeFiles/wrapping_integers_cmp.dir/wrapping_integers_cmp.cc.s
 
 # Object files for target wrapping_integers_cmp
 wrapping_integers_cmp_OBJECTS = \
@@ -95,18 +95,18 @@ tests/wrapping_integers_cmp: tests/CMakeFiles/wrapping_integers_cmp.dir/build.ma
 tests/wrapping_integers_cmp: tests/libtcp_reciever_checks.a
 tests/wrapping_integers_cmp: src/libtcp_reciever.a
 tests/wrapping_integers_cmp: tests/CMakeFiles/wrapping_integers_cmp.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/vboxuser/Downloads/CN_Assignment2/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX executable wrapping_integers_cmp"
-	cd /home/vboxuser/Downloads/CN_Assignment2/build/tests && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/wrapping_integers_cmp.dir/link.txt --verbose=$(VERBOSE)
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/vboxuser/Downloads/CN_Assignments/CN_Assignment2/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX executable wrapping_integers_cmp"
+	cd /home/vboxuser/Downloads/CN_Assignments/CN_Assignment2/build/tests && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/wrapping_integers_cmp.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
 tests/CMakeFiles/wrapping_integers_cmp.dir/build: tests/wrapping_integers_cmp
 .PHONY : tests/CMakeFiles/wrapping_integers_cmp.dir/build
 
 tests/CMakeFiles/wrapping_integers_cmp.dir/clean:
-	cd /home/vboxuser/Downloads/CN_Assignment2/build/tests && $(CMAKE_COMMAND) -P CMakeFiles/wrapping_integers_cmp.dir/cmake_clean.cmake
+	cd /home/vboxuser/Downloads/CN_Assignments/CN_Assignment2/build/tests && $(CMAKE_COMMAND) -P CMakeFiles/wrapping_integers_cmp.dir/cmake_clean.cmake
 .PHONY : tests/CMakeFiles/wrapping_integers_cmp.dir/clean
 
 tests/CMakeFiles/wrapping_integers_cmp.dir/depend:
-	cd /home/vboxuser/Downloads/CN_Assignment2/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/vboxuser/Downloads/CN_Assignment2 /home/vboxuser/Downloads/CN_Assignment2/tests /home/vboxuser/Downloads/CN_Assignment2/build /home/vboxuser/Downloads/CN_Assignment2/build/tests /home/vboxuser/Downloads/CN_Assignment2/build/tests/CMakeFiles/wrapping_integers_cmp.dir/DependInfo.cmake "--color=$(COLOR)"
+	cd /home/vboxuser/Downloads/CN_Assignments/CN_Assignment2/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/vboxuser/Downloads/CN_Assignments/CN_Assignment2 /home/vboxuser/Downloads/CN_Assignments/CN_Assignment2/tests /home/vboxuser/Downloads/CN_Assignments/CN_Assignment2/build /home/vboxuser/Downloads/CN_Assignments/CN_Assignment2/build/tests /home/vboxuser/Downloads/CN_Assignments/CN_Assignment2/build/tests/CMakeFiles/wrapping_integers_cmp.dir/DependInfo.cmake "--color=$(COLOR)"
 .PHONY : tests/CMakeFiles/wrapping_integers_cmp.dir/depend
 
