@@ -22,6 +22,8 @@ class StreamReassembler {
     size_t nextInd;
     size_t bufferSize;
     std::string dataToAdd;
+    size_t capacityRem;
+    
 
     ByteStream _output;  //!< The reassembled in-order byte stream
 
