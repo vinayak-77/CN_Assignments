@@ -23,7 +23,7 @@ class StreamReassembler {
     size_t bufferSize;
     std::string dataToAdd;
     size_t capacityRem;
-    
+    bool eofVal;
 
     ByteStream _output;  //!< The reassembled in-order byte stream
 

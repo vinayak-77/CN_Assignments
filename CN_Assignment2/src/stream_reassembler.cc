@@ -37,6 +37,7 @@ StreamReassembler::StreamReassembler(const size_t capacity)
     this->bufferSize = 0;
     this->dataToAdd = "";
     this->capacityRem = capacity;
+    this->eofVal = false;
     
     // this->_output = _output;
 }
@@ -48,15 +49,18 @@ StreamReassembler::StreamReassembler(const size_t capacity)
 void StreamReassembler::push_substring(const string &data, const size_t index, const bool eof) {
     
     if(eof){
-        stream_out().setEOF(true);
+        eofVal = true;
     }
-    else{
-        stream_out().setEOF(false);
-    }
+    // else{
+    //     stream_out().setEOF(false);
+    // }
     	
     
     string tempData = data;
     if(index>=_output.remaining_capacity()+nextInd || _output.remaining_capacity()==0){
+        if(eofVal && buffer.size()==0){
+            _output.setEOF(true);
+        }
         return;
     }
 
@@ -79,13 +83,14 @@ void StreamReassembler::push_substring(const string &data, const size_t index, c
             }
         }
         nextInd+=dataToAdd.length();
-
+        capacityRem+=dataToAdd.length();
         stream_out().write(dataToAdd);
         while(nextInd<capacityRem && buffer.find(nextInd)!=buffer.end()){
             
             string newData = buffer[nextInd];
             newData = newData.substr(0,min(newData.length(),capacityRem));
             capacityRem+=newData.length();
+
             buffer.erase(nextInd);
             // if(nextInd>capacity){
             //     int remainingSize = capacity-nextInd;
@@ -113,11 +118,19 @@ void StreamReassembler::push_substring(const string &data, const size_t index, c
             stream_out().write(dataToAdd);
         }
         
-        return;
+        if(eofVal && buffer.size()==0){
+            _output.setEOF(true);
+        }
     }
     else{
         size_t start = nextInd-index;
-        dataToAdd = tempData.substr(start,tempData.length()-start);
+        if(start>=tempData.length()){
+            if(eofVal && buffer.size()==0){
+            _output.setEOF(true);
+        }
+            return;
+        }
+        dataToAdd = tempData.substr(start,min(tempData.length()-start,capacityRem));
         
         for(size_t i = nextInd;i<nextInd+dataToAdd.length();i++){
             if(buffer.find(i)!=buffer.end()){
@@ -126,9 +139,9 @@ void StreamReassembler::push_substring(const string &data, const size_t index, c
         }
 
         nextInd+=dataToAdd.length();
-
+        capacityRem+=dataToAdd.length();
         stream_out().write(dataToAdd);
-        while(buffer.find(nextInd)!=buffer.end()){
+        while(nextInd<capacityRem && buffer.find(nextInd)!=buffer.end()){
             
             string newData = buffer[nextInd];
             
@@ -160,7 +173,9 @@ void StreamReassembler::push_substring(const string &data, const size_t index, c
             
         }
         
-        return;
+        if(eofVal && buffer.size()==0){
+            _output.setEOF(true);
+        }
     }
     
 }

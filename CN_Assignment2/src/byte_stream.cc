@@ -16,44 +16,39 @@ using namespace std;
 ByteStream::ByteStream(const size_t capa)
 {
   this->capacity = capa;
-  this->currPtrLeft = 0;
-  this->currPtrRight = 0;
   this->end = false;
   this->Input = "";
   this->Output = "";
   this->lengthWritten = 0;
   this->lengthRead = 0;
+  this->eofVal = false;
 }
 
 size_t ByteStream::write(const string &data) {
   
   size_t n = data.length();
-  size_t i = 0;
+  size_t currWritten = 0;
 
   if(capacity<n){
     set_error();
   }
   
-  while(capacity && i<n){
+  for(size_t i = 0;i<n && capacity>0;i++){
     Input+=data[i];
     Output+=data[i];
-    buffer.push_back(data[i]);
-    i++;
+    stream.push_back(data[i]);
+    currWritten++;
     capacity--;
     lengthWritten++;
-    currPtrRight++;
-
   }
   
-  return i;
+  return currWritten;
 }
 
 //! \param[in] len bytes will be copied from the output side of the buffer
 string ByteStream::peek_output(const size_t len) const {
   string output;
-  
-  size_t start = currPtrLeft;
-  for(size_t i = start;i<start+len && i<currPtrRight;i++){
+  for(size_t i = 0;i<len && i<Output.length();i++){
     
     output+=Output[i];
   }
@@ -64,16 +59,18 @@ string ByteStream::peek_output(const size_t len) const {
 //! \param[in] len bytes will be removed from the output side of the buffer
 void ByteStream::pop_output(const size_t len) {
   
-  size_t remLen = len;
-  while(remLen && currPtrLeft<currPtrRight){
-    this->buffer.pop_front();
-    currPtrLeft++;
+  size_t sz = Output.length();
+  for(size_t i = 0;i<len && i<sz;i++){
+    stream.pop_front();
+    Output.erase(Output.begin());
     capacity++;
-    remLen--;
+    
     lengthRead++;
+    
   }
-  if(remLen){
-  	set_error();
+  
+  if(len>sz){
+    set_error();
   }
 }
 
@@ -82,16 +79,18 @@ void ByteStream::pop_output(const size_t len) {
 //! \returns a string
 std::string ByteStream::read(const size_t len) {
   string output;
-  size_t start = currPtrLeft;
-  for(size_t i = start;i<start+len && i<currPtrRight;i++){
-    this->buffer.pop_front();
+  size_t sz = Output.length();
+  for(size_t i = 0;i<len && i<sz;i++){
+    output+=Output[0];
+    stream.pop_front();
+    Output.erase(Output.begin());
     capacity++;
-    output+=Output[i];
+    
     lengthRead++;
-    currPtrLeft++;
+    
   }
   
-  if(start+len>currPtrRight){
+  if(len>sz){
     set_error();
   }
   return output;
@@ -106,15 +105,15 @@ bool ByteStream::input_ended() const {
 }
 
 size_t ByteStream::buffer_size() const {
-  return buffer.size();
+  return Output.size();
  }
 
 bool ByteStream::buffer_empty() const {
-  return buffer.size()==0; 
+  return Output.size()==0; 
 }
 
 bool ByteStream::eof() const {
-  return buffer_empty() && input_ended();
+  return eofVal && buffer_empty();
 }
 
 size_t ByteStream::bytes_written() const { 
@@ -128,4 +127,12 @@ size_t ByteStream::bytes_read() const {
 
 size_t ByteStream::remaining_capacity() const { 
   return capacity; 
+}
+
+void ByteStream::setEOF(bool eof){
+  eofVal = eof;
+}
+
+void ByteStream::setend(bool end){
+  endVal = end;
 }

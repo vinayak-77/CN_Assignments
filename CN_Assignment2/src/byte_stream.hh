@@ -11,15 +11,16 @@
 class ByteStream {
   private:
     // Your code here -- add private members as necessary.
-    std::deque <char> buffer;
+    std::deque <char> stream;
     size_t capacity;
     size_t lengthWritten;
     size_t lengthRead;
     std::string Input;
     std::string Output;
-    size_t currPtrLeft;
-    size_t currPtrRight;
     bool end;
+    bool eofVal;
+    bool endVal;
+
     bool _error{};  //!< Flag indicating that the stream suffered an error.
 
   public:
@@ -83,6 +84,8 @@ class ByteStream {
     //! Total number of bytes popped
     size_t bytes_read() const;
     //!@}
+    void setEOF(bool eofVal);
+    void setend(bool end);
 };
 
 #endif  // SPONGE_LIBSPONGE_BYTE_STREAM_HH
