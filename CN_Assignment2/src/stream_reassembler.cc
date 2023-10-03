@@ -57,7 +57,7 @@ void StreamReassembler::push_substring(const string &data, const size_t index, c
     	
     
     string tempData = data;
-    if(index>=_output.remaining_capacity()+nextInd || _output.remaining_capacity()==0){
+    if(index>_output.remaining_capacity()+nextInd || _output.remaining_capacity()==0){
         if(eofVal && buffer.size()==0){
             _output.setEOF(true);
         }
@@ -65,113 +65,93 @@ void StreamReassembler::push_substring(const string &data, const size_t index, c
     }
 
     if(index>nextInd){
+
+        size_t cnt = 0;
         for(size_t i = 0;i<tempData.length();i++){
             buffer[i+index] = tempData[i];
+            cnt++;
         }
-        capacityRem-=data.length();
+        capacityRem-=cnt;
         capacityRem = max(0,capacityRem);
         bufferSize+=data.length();
         return;
     }
 
     else if(index==nextInd){
-        dataToAdd = tempData.substr(0,min(tempData.length(),_output.remaining_capacity()));
+        dataToAdd = tempData.substr(0,min(tempData.length(),capacity));
 
         for(size_t i = nextInd;i<nextInd+dataToAdd.length();i++){
             if(buffer.find(i)!=buffer.end()){
                 buffer.erase(i);
+                capacityRem++;
             }
         }
         nextInd+=dataToAdd.length();
-        capacityRem+=dataToAdd.length();
+        
+        size_t start = nextInd;
         stream_out().write(dataToAdd);
-        while(nextInd<capacityRem && buffer.find(nextInd)!=buffer.end()){
+        while(buffer.find(start)!=buffer.end()){
             
-            string newData = buffer[nextInd];
-            newData = newData.substr(0,min(newData.length(),capacityRem));
-            capacityRem+=newData.length();
-
-            buffer.erase(nextInd);
-            // if(nextInd>capacity){
-            //     int remainingSize = capacity-nextInd;
-            //     newData = newData.substr(0,remainingSize);
-            //     stream+=newData;
-            //     dataToAdd+=newData;
-            //     nextInd+=newData.size();
-            //     bufferSize-=newData.length();
-                
-            // }
-
+            string newData = buffer[start];
+            if(_output.remaining_capacity()==0){
+                break;
+            }
+            buffer.erase(start);
+            start++;
+            capacityRem++;
             
             stream+=newData;
             dataToAdd = newData;
 
-            for(size_t i = nextInd;i<nextInd+dataToAdd.length();i++){
-                if(buffer.find(i)!=buffer.end()){
-                    buffer.erase(i);
-                }
-            }
-
-            nextInd+=newData.size();
             bufferSize-=newData.length();
                 
             stream_out().write(dataToAdd);
         }
+        nextInd = start;
         
         if(eofVal && buffer.size()==0){
             _output.setEOF(true);
         }
     }
     else{
-        size_t start = nextInd-index;
-        if(start>=tempData.length()){
+        size_t startInd = nextInd-index;
+        if(startInd>=tempData.length()){
             if(eofVal && buffer.size()==0){
             _output.setEOF(true);
         }
             return;
         }
-        dataToAdd = tempData.substr(start,min(tempData.length()-start,capacityRem));
+        dataToAdd = tempData.substr(startInd,min(tempData.length()-startInd,capacity));
         
         for(size_t i = nextInd;i<nextInd+dataToAdd.length();i++){
             if(buffer.find(i)!=buffer.end()){
                 buffer.erase(i);
+                capacityRem++;
             }
         }
 
         nextInd+=dataToAdd.length();
-        capacityRem+=dataToAdd.length();
+        
+        size_t start = nextInd;
         stream_out().write(dataToAdd);
-        while(nextInd<capacityRem && buffer.find(nextInd)!=buffer.end()){
+        while(buffer.find(start)!=buffer.end()){
             
-            string newData = buffer[nextInd];
-            
-            
-            capacityRem+=newData.length();
-            buffer.erase(nextInd);
-            // if(nextInd>capacity){
-            //     int remainingSize = capacity-nextInd;
-            //     newData = newData.substr(0,remainingSize);
-            //     stream+=newData;
-            //     dataToAdd+=newData;
-            //     nextInd+=newData.size();
-            //     bufferSize-=newData.length();
-                
-            // }
-            
+            string newData = buffer[start];
+            if(_output.remaining_capacity()==0){
+                break;
+            }
+            buffer.erase(start);
+            start++;
+           
+            capacityRem++;
             stream+=newData;
             dataToAdd = newData;
 
-            for(size_t i = nextInd;i<nextInd+dataToAdd.length();i++){
-                if(buffer.find(i)!=buffer.end()){
-                    buffer.erase(i);
-                }
-            }
-
-            nextInd+=newData.size();
             bufferSize-=newData.length();
+                
             stream_out().write(dataToAdd);
-            
         }
+        nextInd = start;
         
         if(eofVal && buffer.size()==0){
             _output.setEOF(true);
