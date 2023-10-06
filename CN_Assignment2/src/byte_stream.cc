@@ -113,7 +113,7 @@ bool ByteStream::buffer_empty() const {
 }
 
 bool ByteStream::eof() const {
-  return eofVal && buffer_empty();
+  return end && buffer_empty();
 }
 
 size_t ByteStream::bytes_written() const { 
@@ -129,10 +129,3 @@ size_t ByteStream::remaining_capacity() const {
   return capacity; 
 }
 
-void ByteStream::setEOF(bool eof){
-  eofVal = eof;
-}
-
-void ByteStream::setend(bool end){
-  endVal = end;
-}

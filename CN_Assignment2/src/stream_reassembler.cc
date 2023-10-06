@@ -59,7 +59,7 @@ void StreamReassembler::push_substring(const string &data, const size_t index, c
     string tempData = data;
     if(index>_output.remaining_capacity()+nextInd || _output.remaining_capacity()==0){
         if(eofVal && buffer.size()==0){
-            _output.setEOF(true);
+            _output.end_input();
         }
         return;
     }
@@ -110,14 +110,14 @@ void StreamReassembler::push_substring(const string &data, const size_t index, c
         nextInd = start;
         
         if(eofVal && buffer.size()==0){
-            _output.setEOF(true);
+            _output.end_input();
         }
     }
     else{
         size_t startInd = nextInd-index;
         if(startInd>=tempData.length()){
             if(eofVal && buffer.size()==0){
-            _output.setEOF(true);
+            _output.end_input();
         }
             return;
         }
@@ -154,7 +154,7 @@ void StreamReassembler::push_substring(const string &data, const size_t index, c
         nextInd = start;
         
         if(eofVal && buffer.size()==0){
-            _output.setEOF(true);
+            _output.end_input();
         }
     }
     
