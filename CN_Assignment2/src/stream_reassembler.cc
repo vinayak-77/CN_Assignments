@@ -67,7 +67,7 @@ void StreamReassembler::push_substring(const string &data, const size_t index, c
     if(index>nextInd){
 
         size_t cnt = 0;
-        for(size_t i = 0;i<tempData.length();i++){
+        for(size_t i = 0;i<tempData.length() && buffer.size()<=capacity;i++){
             buffer[i+index] = tempData[i];
             cnt++;
         }

@@ -28,6 +28,7 @@ class TCPReceiver {
 
     //! Inital Squence Number
     WrappingInt32 _isn;
+    
 
   public:
     //! \brief Construct a TCP receiver

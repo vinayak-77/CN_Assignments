@@ -28,15 +28,26 @@ uint64_t unwrap(WrappingInt32 n, WrappingInt32 isn, uint64_t checkpoint) {
  uint32_t num = n.raw_value();
  uint32_t start = isn.raw_value();
  WrappingInt32 relativeCheckpoint = wrap(checkpoint,isn); //Converting checkpoint to relative seq no.
- uint32_t dist = num-relativeCheckpoint.raw_value(); // Finding distance between num and relative checkpoint. Difference between distances should be same in absolute and relative seq
- uint64_t ans;
- if(limit-dist<dist){ //wrap condition
- 	ans = dist+checkpoint<limit ? dist+checkpoint : dist+checkpoint-limit;
+
+ int32_t dist = n-relativeCheckpoint; // Finding distance between num and relative checkpoint. Difference between distances should be same in absolute and relative seq
+ int64_t checkpointVal = int64_t(checkpoint);
+ int64_t ans = checkpoint+dist;
+ // if(limit-dist<dist){ //wrap condition
+ // 	ans = dist+checkpoint>=0 ? dist+checkpoint : dist+checkpoint+limit;
  	
+ // }
+ // else{
+ // 	ans = dist+checkpoint;
+ // }
+
+ // if(ans<0){
+ // 	ans+=limit;
+ // }
+ if(ans<0){
+ 	ans+=limit;
  }
- else{
- 	ans = dist+checkpoint;
- }
- ans = ans<0 ? ans+limit : ans;
- return ans;
+ uint64_t unwrapVal = uint64_t(ans);
+ // unwrapVal = unwrapVal<0 ? unwrap+limit : unwrap;
+ // ans = ans<0 ? ans+limit : ans;
+ return unwrapVal;
 }
