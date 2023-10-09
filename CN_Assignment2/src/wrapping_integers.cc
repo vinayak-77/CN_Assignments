@@ -25,29 +25,53 @@ WrappingInt32 wrap(uint64_t n, WrappingInt32 isn) { return (isn + uint32_t(n)); 
 //! has a different ISN.
 uint64_t unwrap(WrappingInt32 n, WrappingInt32 isn, uint64_t checkpoint) {
 
- uint32_t num = n.raw_value();
- uint32_t start = isn.raw_value();
- WrappingInt32 relativeCheckpoint = wrap(checkpoint,isn); //Converting checkpoint to relative seq no.
-
- int32_t dist = n-relativeCheckpoint; // Finding distance between num and relative checkpoint. Difference between distances should be same in absolute and relative seq
- int64_t checkpointVal = int64_t(checkpoint);
- int64_t ans = checkpoint+dist;
- // if(limit-dist<dist){ //wrap condition
- // 	ans = dist+checkpoint>=0 ? dist+checkpoint : dist+checkpoint+limit;
- 	
+ // uint32_t num = n.raw_value();
+ // uint32_t start = isn.raw_value();
+ // uint32_t numDist = num-start;
+ 
+ // int32_t trial = relativeCheckpoint.raw_value();
+ 
+ // return relativeCheckpoint.raw_value();
+ // if(numDist>=relativeCheckpoint.raw_value()){
+ // 	uint64_t ans = checkpoint+(numDist-relativeCheckpoint.raw_value());
+ // 	if(ans<0){
+ // 		ans+=limit;
+ // 	}
+ // 	return ans;
  // }
  // else{
- // 	ans = dist+checkpoint;
+ // 	uint64_t wraps = checkpoint/(limit);
+ // 	uint64_t ans = checkpoint-(limit<<1)-(numDist-relativeCheckpoint.raw_value())-1;
+ // 	if(ans<0){
+ // 		ans+=limit;
+ // 	}
+ // 	return (uint64_t)ans;
  // }
+ // // WrappingInt32 relativeCheckpoint = wrap(checkpoint,isn); //Converting checkpoint to relative seq no.
 
- // if(ans<0){
- // 	ans+=limit;
- // }
- if(ans<0){
- 	ans+=limit;
+ // int32_t dist = n-relativeCheckpoint; // Finding distance between num and relative checkpoint. Difference between distances should be same in absolute and relative seq
+ // int64_t checkpointVal = int64_t(checkpoint);
+ // int64_t ans = checkpoint+dist;
+
+	
+ WrappingInt32 relativeCheckpoint = wrap(checkpoint,isn); // relative distance between checkpoint and isn and our task is to find n as close as possible to checkpoint
+ if(limit-(n.raw_value()-relativeCheckpoint.raw_value())<(n.raw_value()-relativeCheckpoint.raw_value())){ // Closer to 1<<32, so last bytes before checkpoint around
+ 	int64_t relAns = checkpoint-((UINT32_MAX+1)-(n-relativeCheckpoint));
+ 	uint64_t ans;
+ 	if(relAns<0){ //Overflow condition
+ 		relAns+=limit;
+ 	}
+ 	ans = (uint64_t)relAns;
+ 	return ans;
  }
- uint64_t unwrapVal = uint64_t(ans);
- // unwrapVal = unwrapVal<0 ? unwrap+limit : unwrap;
- // ans = ans<0 ? ans+limit : ans;
- return unwrapVal;
+ else{ // Closer to checkpoint, so first bytes after checkpoint
+ 	int64_t relAns = (n-relativeCheckpoint)+checkpoint;
+ 	uint64_t ans;
+ 	if(relAns<0){
+ 		relAns+=limit;
+ 	}
+ 	ans = (uint64_t)relAns;
+ 	return ans;
+ }
+ 
 }

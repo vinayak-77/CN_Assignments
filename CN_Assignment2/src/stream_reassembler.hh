@@ -62,8 +62,8 @@ class StreamReassembler {
     //! The acknowledge index of the stream, i.e., the index of the next interested substring
     size_t ack_index() const;
 
-    std::string getStream();
-    std::string getOutput();
+    // std::string getStream();
+    // std::string getOutput();
 };
 
 #endif  // SPONGE_LIBSPONGE_STREAM_REASSEMBLER_HH

@@ -24,7 +24,7 @@ size_t max(size_t a,size_t b){
 }
 
 // string stream;
-unordered_map<uint64_t,string> buffer;
+
 // ByteStream _output;
 
 StreamReassembler::StreamReassembler(const size_t capacity)
@@ -32,7 +32,7 @@ StreamReassembler::StreamReassembler(const size_t capacity)
 {
     this->capacity = capacity;
     this->stream = "";
-    this->buffer = buffer;
+    
     this->nextInd = 0;
     this->bufferSize = 0;
     this->dataToAdd = "";
@@ -78,7 +78,7 @@ void StreamReassembler::push_substring(const string &data, const size_t index, c
     }
 
     else if(index==nextInd){
-        dataToAdd = tempData.substr(0,min(tempData.length(),capacity));
+        dataToAdd = tempData.substr(0,min(tempData.length(),_output.remaining_capacity()));
 
         for(size_t i = nextInd;i<nextInd+dataToAdd.length();i++){
             if(buffer.find(i)!=buffer.end()){
@@ -90,12 +90,10 @@ void StreamReassembler::push_substring(const string &data, const size_t index, c
         
         size_t start = nextInd;
         stream_out().write(dataToAdd);
-        while(buffer.find(start)!=buffer.end()){
+        while(_output.remaining_capacity() && buffer.find(start)!=buffer.end()){
             
             string newData = buffer[start];
-            if(_output.remaining_capacity()==0){
-                break;
-            }
+            
             buffer.erase(start);
             start++;
             capacityRem++;
@@ -121,7 +119,7 @@ void StreamReassembler::push_substring(const string &data, const size_t index, c
         }
             return;
         }
-        dataToAdd = tempData.substr(startInd,min(tempData.length()-startInd,capacity));
+        dataToAdd = tempData.substr(startInd,min(tempData.length()-startInd,_output.remaining_capacity()));
         
         for(size_t i = nextInd;i<nextInd+dataToAdd.length();i++){
             if(buffer.find(i)!=buffer.end()){
@@ -134,12 +132,10 @@ void StreamReassembler::push_substring(const string &data, const size_t index, c
         
         size_t start = nextInd;
         stream_out().write(dataToAdd);
-        while(buffer.find(start)!=buffer.end()){
+        while(_output.remaining_capacity() && buffer.find(start)!=buffer.end()){
             
             string newData = buffer[start];
-            if(_output.remaining_capacity()==0){
-                break;
-            }
+            
             buffer.erase(start);
             start++;
            
@@ -166,8 +162,8 @@ bool StreamReassembler::empty() const { return buffer.size() == 0; }
 
 size_t StreamReassembler::ack_index() const { return nextInd; }
 
-string StreamReassembler::getStream() {return this->stream; }
+// string StreamReassembler::getStream() {return this->stream; }
 
-string StreamReassembler :: getOutput() {return _output.read(nextInd); }
+// string StreamReassembler :: getOutput() {return _output.read(nextInd); }
 
 
