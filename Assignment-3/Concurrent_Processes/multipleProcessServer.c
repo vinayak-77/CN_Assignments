@@ -7,6 +7,8 @@
 #include <string.h>
 #include <unistd.h>
 #include <arpa/inet.h>
+#include <sys/types.h>
+#include <stdbool.h>
 
 #define ll long long
 #define PORT 8081
@@ -28,24 +30,78 @@ ll factorial(int num){
 }
 
 int main(){
-	struct sockaddr_in sockAddr;
+	struct sockaddr_in server,client;
+	int clientAccRes;
+	int clientSize;
 
 	 // Creating the socket
 	int socketRes = socket(AF_INET,SOCK_STREAM,0);
 
-	if(socketRes==-1){
+	if(socketRes<0){
 		perror("Error in creating the socket");
 		exit(1);
 	}
+	bzero(&server,sizeof(server));
+	server.sin_family = AF_INET;
+	server.sin_port = htons(8080);
+	server.sin_addr.s_addr = htonl(INADDR_ANY);
 
-	sockAddr.sin_family = AF_INET;
-	sockAddr.sin_port = PORT;
-	sockAddr.sin_addr.s_addr = htonl(INADDR_ANY);
+	int serverBindRes = bind(socketRes,(struct sockaddr*)&server,sizeof(server));
 
-	int bindRes = bind(socketRes,(struct socadd*)&sockAddr,sizeof(sockAddr));
-
-	if(bindRes==-1){
+	if(serverBindRes<0){
 		perror("Error in binding the socket");
 		exit(1);
 	}
+
+	int listenRes = listen(socketRes,50);
+	if(listenRes!=0){
+		perror("Error while listening");
+		exit(1);
+	}
+	
+
+	while(true){
+		
+		
+		clientSize = sizeof(client);
+	
+		clientAccRes = accept(socketRes,(struct sockaddr*)&client,&clientSize);
+		
+		if(clientAccRes<0){
+			perror("Error in accepting client");
+			exit(1);
+			break;
+		}
+		
+		if(fork()==0){
+			close(socketRes);
+
+			char readString[1024];
+			
+			while(true){
+				
+				// read(clientAccRes,&readString,1024);
+				strcpy(readString,"");
+				ll num;
+				ll recvLen = recv(clientAccRes,&readString,1024,0);
+
+				num = atoi(readString);
+
+				printf("Client message %lld\n",num);
+
+				ll ans = factorial(num);
+
+				
+				char ack[1024];
+				
+				sprintf(ack,"%lld",ans);
+				ll sendLen = send(clientAccRes,&ack,sizeof(ack),0);
+				printf("Factorial is %lld\n",ans);
+				
+			}
+			exit(EXIT_SUCCESS);
+		}
+	}
+	printf("HELLOOOOO\n");
+	close(clientAccRes);
 }
