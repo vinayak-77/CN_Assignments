@@ -83,7 +83,7 @@ int main(){
 				// read(clientAccRes,&readString,1024);
 				strcpy(readString,"");
 				ll num;
-				ll recvLen = recv(clientAccRes,&readString,1024,0);
+				ll recvLen = read(clientAccRes,&readString,1024);
 
 				num = atoi(readString);
 
@@ -95,7 +95,7 @@ int main(){
 				char ack[1024];
 				
 				sprintf(ack,"%lld",ans);
-				ll sendLen = send(clientAccRes,&ack,sizeof(ack),0);
+				ll sendLen = write(clientAccRes,&ack,sizeof(ack));
 				printf("Factorial is %lld\n",ans);
 				
 			}

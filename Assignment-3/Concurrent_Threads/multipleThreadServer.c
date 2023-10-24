@@ -1,3 +1,6 @@
+//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
+
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <math.h>
@@ -6,10 +9,12 @@
 #include <arpa/inet.h>
 #include <sys/types.h>
 #include <stdbool.h>
+#include <pthread.h>
 
 #define ll long long
 #define PORT 8081
 
+pthread_t threads[50];
 
 ll factorial(int num){
 	ll ans = 1;
@@ -26,10 +31,11 @@ ll factorial(int num){
 	return ans;
 }
 
-void handle(int clientAccRes){
+void* handle(void* clientAccRes){
+	printf("In handle...\n");
 	strcpy(readString,"");
 	ll num;
-
+	int clientAccRes = *((int*)clientAccRes);
 	ll recvLen = recv(clientAccRes,&readString,1024,0);
 
 	num = atoi(readString);
@@ -45,7 +51,7 @@ void handle(int clientAccRes){
 	ll sendLen = send(clientAccRes,&ack,sizeof(ack),0);
 	
 	printf("Factorial is %lld\n",ans);
-				
+	return NULL;
 }
 
 int main(){
@@ -79,7 +85,7 @@ int main(){
 	}
 	
 
-	while(true){
+	for(int i = 0;i<50;i++){
 		
 		
 		clientSize = sizeof(client);
@@ -92,18 +98,12 @@ int main(){
 			break;
 		}
 		
-		if(fork()==0){
-			close(socketRes);
+		printf("Creating thread....\n");
+		pthread_create(&threads[i],NULL,handle,&clientAccRes);
+	}
 
-			char readString[1024];
-			int i = 0;
-			while(true){
-				
-				// read(clientAccRes,&readString,1024);
-				handle(clientAccRes,readString);
-			}
-			exit(EXIT_SUCCESS);
-		}
+	for(int i = 0;i<50;i++){
+		pthread_join(threads[i],NULL);
 	}
 	printf("HELLOOOOO\n");
 	close(clientAccRes);
