@@ -10,12 +10,21 @@
 #include <sys/types.h>
 #include <stdbool.h>
 #include <pthread.h>
+#include <signal.h>
 
 #define ll long long
 #define PORT 8081
 
-pthread_t threads[60];
+int socketRes;
 
+// pthread_t threads[60];
+
+
+void signalHandler(int sigNum){
+	signal(SIGINT,signalHandler);
+	close(socketRes);
+	exit(0);
+}
 
 
 ll factorial(int num){
@@ -36,67 +45,48 @@ ll factorial(int num){
 void* handle(void* clientAccRes){
 	char readString[1024];
 	int clientAcc = *((int*)clientAccRes);
-	
-	int i = 0;
-	while(i<50){
-		strcpy(readString,"");
-		ll num;
-		
-		if(clientAcc>=53){
-			printf("Handler----%d %d\n",clientAcc,i);
-		}
-		
-		ll recvLen = read(clientAcc,&readString,1024);
-		if(recvLen<0){
-			printf("BREAKING HERE %d\n",clientAcc);
-			close(clientAcc);
-			// i++;
-			// continue;
-			return NULL;
-		}
+	free(clientAccRes);
+	int readStatus;
 
-		num = atoi(readString);
-
-		// printf("Client message %lld\n",num);
-
+	while(readStatus = read(clientAcc,&readString,1024)>0){
+		ll num = atoi(readString);
+		printf("Client message --- %lld\n",num);
 		ll ans = factorial(num);
-		i++;
-		
+
 		char ack[1024];
-		
+				
 		sprintf(ack,"%lld",ans);
-		ll sendLen = write(clientAcc,&ack,sizeof(ack));
-		if(sendLen <= -1){
-			printf("BREAKING HERE %d\n",clientAcc);
-			close(clientAcc);
-			return NULL;
-			// i++;
-			// continue;
-		}
-		// if(sendLen==0){
-		// 	close(clientAcc);
-		// 	return NULL;
-		// }
-		
-		// printf("Factorial is %lld\n",ans);	
+		ll writeStatus = write(clientAcc,&ack,sizeof(ack));
+
+
+	}
+
+	if(readStatus==0){
+		printf("No more bytes received\n");
+	}
+	else if(readStatus==-1){
+		perror("Error in receving bytes");
 		
 	}
-	printf("Completed-----%d\n",clientAcc);
-	close(clientAcc);
 	
+
 	
 	return NULL;
 }
 
 int main(){
+
+	signal(SIGINT,signalHandler);
+
 	struct sockaddr_in server,client;
 	int clientAccRes;
 	// int clientSize;
 
 	 // Creating the socket
-	int socketRes = socket(AF_INET,SOCK_STREAM,0);
+	socketRes = socket(AF_INET,SOCK_STREAM,0);
 
 	if(socketRes<0){
+		
 		perror("Error in creating the socket");
 		exit(1);
 	}
@@ -112,31 +102,25 @@ int main(){
 		exit(1);
 	}
 
-	int listenRes = listen(socketRes,60);
+	int listenRes = listen(socketRes,50);
 	if(listenRes!=0){
 		perror("Error while listening");
 		exit(1);
 	}
 	
 	
-	int connectionCnt = 0;
-	while(connectionCnt<50){
-		
-		
-		int clientSize = sizeof(client);
-	
-		clientAccRes = accept(socketRes,(struct sockaddr*)&client,&clientSize);
-		printf("%d\n",clientAccRes);
-		if(clientAccRes<0){
-			perror("Error in accepting client");
-			exit(1);
-			
-		}
-		
-		
-		pthread_create(&threads[connectionCnt],NULL,handle,&clientAccRes);
+	int clientSize = sizeof(client);
 
-		connectionCnt++;
+	while(clientAccRes = accept(socketRes,(struct sockaddr*)&client,&clientSize)){
+		
+		
+		pthread_t thr;
+		int *clientArg = malloc(sizeof(int));
+		*clientArg = clientAccRes;
+		
+		pthread_create(&thr,NULL,handle,clientArg);
+
+		// connectionCnt++;
 		
 		// if(connectionCnt>=50){
 		// 	connectionCnt = 0;
@@ -147,12 +131,16 @@ int main(){
 		// close(socketRes);
 		
 		
-	for(int i = 0;i<50;i++){
-		pthread_join(threads[i],NULL);
-	}
+	// for(int i = 0;i<50;i++){
+	// 	pthread_join(threads[i],NULL);
+	// }
 
+	if(clientAccRes<0){
+		perror("Error in accepting");
+		exit(1);
+	}
 	
 	
 	
-	close(socketRes);
+	
 }
