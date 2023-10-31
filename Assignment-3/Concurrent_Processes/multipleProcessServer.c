@@ -59,31 +59,23 @@ int main(){
 		exit(1);
 	}
 	
-
-	while(true){
+	clientSize = sizeof(client);
+	while((clientAccRes = accept(socketRes,(struct sockaddr*)&client,&clientSize))>=0){
 		
 		
-		clientSize = sizeof(client);
-	
-		clientAccRes = accept(socketRes,(struct sockaddr*)&client,&clientSize);
 		
-		if(clientAccRes<0){
-			perror("Error in accepting client");
-			exit(1);
-			break;
-		}
 		
 		if(fork()==0){
 			close(socketRes);
 
 			char readString[1024];
 			
-			while(true){
+			while(read(clientAccRes,&readString,1024)){
 				
 				// read(clientAccRes,&readString,1024);
-				strcpy(readString,"");
+				
 				ll num;
-				ll recvLen = read(clientAccRes,&readString,1024);
+				
 
 				num = atoi(readString);
 
@@ -97,10 +89,18 @@ int main(){
 				sprintf(ack,"%lld",ans);
 				ll sendLen = write(clientAccRes,&ack,sizeof(ack));
 				printf("Factorial is %lld\n",ans);
+				strcpy(readString,"");
 				
 			}
+			close(clientAccRes);
 			exit(EXIT_SUCCESS);
 		}
+	}
+
+	if(clientAccRes<0){
+		perror("Error in accepting client");
+		exit(1);
+		
 	}
 	printf("HELLOOOOO\n");
 	close(clientAccRes);

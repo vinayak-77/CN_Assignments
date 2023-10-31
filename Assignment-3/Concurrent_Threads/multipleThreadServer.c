@@ -15,6 +15,8 @@
 #define ll long long
 #define PORT 8081
 
+ll total = 0;
+
 int socketRes;
 
 // pthread_t threads[60];
@@ -43,31 +45,36 @@ ll factorial(int num){
 }
 
 void* handle(void* clientAccRes){
+	
 	char readString[1024];
 	int clientAcc = *((int*)clientAccRes);
 	free(clientAccRes);
 	int readStatus;
-
-	while(readStatus = read(clientAcc,&readString,1024)>0){
+	ll done = 0;
+	while(done<50){
+		ll readStatus = read(clientAcc,&readString,1024);
+		if(readStatus<0){
+			perror("read");
+			break;
+		}
 		ll num = atoi(readString);
-		printf("Client message --- %lld\n",num);
+		// printf("Client message --- %lld\n",num);
 		ll ans = factorial(num);
 
 		char ack[1024];
 				
 		sprintf(ack,"%lld",ans);
 		ll writeStatus = write(clientAcc,&ack,sizeof(ack));
+		if(writeStatus<0){
+			perror("write");
+			break;
+		}
 
-
+		done++;
 	}
-
-	if(readStatus==0){
-		printf("No more bytes received\n");
-	}
-	else if(readStatus==-1){
-		perror("Error in receving bytes");
-		
-	}
+	printf("%lld\n",done);
+	// if(readStatus==0){
+	// 	printf("No more bytes received\n");
 	
 
 	
@@ -75,6 +82,9 @@ void* handle(void* clientAccRes){
 }
 
 int main(){
+
+	ll total;
+
 
 	signal(SIGINT,signalHandler);
 
@@ -111,15 +121,28 @@ int main(){
 	
 	int clientSize = sizeof(client);
 
-	while(clientAccRes = accept(socketRes,(struct sockaddr*)&client,&clientSize)){
+	while(true){
+		total++;
 		
-		
+		clientAccRes = accept(socketRes,(struct sockaddr*)&client,&clientSize);
+		if(clientAccRes<0){
+			perror("accept");
+			close(socketRes);
+			exit(1);
+		}
 		pthread_t thr;
 		int *clientArg = malloc(sizeof(int));
 		*clientArg = clientAccRes;
 		
-		pthread_create(&thr,NULL,handle,clientArg);
-
+		ll done = 0;
+		int th = pthread_create(&thr,NULL,handle,clientArg);
+		if(th != 0){
+			
+			perror("Thread");
+			continue;
+		}
+		// printf("%lld\n",total);
+		
 		// connectionCnt++;
 		
 		// if(connectionCnt>=50){
@@ -131,16 +154,14 @@ int main(){
 		// close(socketRes);
 		
 		
-	// for(int i = 0;i<50;i++){
-	// 	pthread_join(threads[i],NULL);
-	// }
-
+	
+	close(socketRes);
 	if(clientAccRes<0){
 		perror("Error in accepting");
 		exit(1);
 	}
 	
-	
+	printf("STOPPPPPPPPPPPPPPPPPPPP----%lld\n",total);
 	
 	
 }
