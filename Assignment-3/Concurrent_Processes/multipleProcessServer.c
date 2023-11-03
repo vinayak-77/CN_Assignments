@@ -95,6 +95,7 @@ int main(){
 			close(clientAccRes);
 			exit(EXIT_SUCCESS);
 		}
+		close(clientAccRes);
 	}
 
 	if(clientAccRes<0){

@@ -64,6 +64,7 @@ void* handle(void* clientAccRes){
 		char ack[1024];
 				
 		sprintf(ack,"%lld",ans);
+		printf("%s\n",ack);
 		ll writeStatus = write(clientAcc,&ack,sizeof(ack));
 		if(writeStatus<0){
 			perror("write");
@@ -141,6 +142,7 @@ int main(){
 			perror("Thread");
 			continue;
 		}
+		
 		// printf("%lld\n",total);
 		
 		// connectionCnt++;
