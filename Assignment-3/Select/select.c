@@ -55,7 +55,7 @@ int main(){
 		exit(1);
 	}
 
-	if(listen(socketFd,50) < 0){
+	if(listen(socketFd,4000) < 0){
 		perror("Listerning to connections");
 		exit(1);
 	}
@@ -89,8 +89,9 @@ int main(){
 						perror("Accept");
 						exit(1);
 					}
-					FD_SET(fd_new, &fds);
 
+					FD_SET(fd_new, &fds);
+					printf("Accepted on %d\n",fd_new);
 					if(fd_new > fdmax){
 						fdmax = fd_new;
 					}
