@@ -14,6 +14,8 @@ class MyTopo( Topo ):
         h4 = self.addHost('h4')
         h5 = self.addHost('h5')
         h6 = self.addHost('h6')
+        h7 = self.addHost('h7')
+        h8 = self.addHost('h8')
 
         s1 = self.addSwitch('s1')
         s2 = self.addSwitch('s2')
@@ -21,16 +23,16 @@ class MyTopo( Topo ):
 
 
         # Add links
-        self.addLink( h1, s1 )
-        self.addLink( s1, h2 )
-        self.addLink( s1, s2 )
+        self.addLink(h1,s1)
+        self.addLink(s1,h2)
+        self.addLink(s1,s2)
         self.addLink(h3,s2)
         self.addLink(s2,h4)
-        self.addLink(s2,h2)
+        self.addLink(s2,h5)
         self.addLink(s2,s3)
-        self.addLink(h5,s3)
-        self.addLink(h2,s3)
-        self.addLink(s2,h6)
+        self.addLink(h6,s3)
+        self.addLink(h7,s3)
+        self.addLink(s3,h8)
 
 
 topos = { 'mytopo': ( lambda: MyTopo() ) }
