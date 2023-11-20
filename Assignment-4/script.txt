@@ -1,0 +1,9 @@
+net
+pingall
+xterm h1
+xterm h1
+xterm h6
+In xterm h1 -> tc qdisc dev h1-eth0 root netem delay 250ms
+In xterm h6 -> iperf -s
+In xterm h1 (1) tcpdump -i h1-eth0 -w packetCapture.pcap
+In xterm h1 (2) iperf -c 10.0.0.6
